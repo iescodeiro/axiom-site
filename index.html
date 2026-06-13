@@ -1,1937 +1,1062 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO PT -->
-  <title>Axiom Group — Especialistas em Media Buying Global</title>
-  <meta name="description" content="A Axiom Group é especialista em compra de mídia e tráfego pago no mercado internacional. Escalamos resultados com precisão, dados e criatividade." />
-
-  <!-- SEO EN -->
-  <meta property="og:title" content="Axiom Group — Global Media Buying Specialists" />
-  <meta property="og:description" content="Axiom Group specializes in media buying and paid traffic for the international market. We scale results with precision, data, and creativity." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://axiomgroups.org/" />
-  <meta name="theme-color" content="#04060A" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ─────────────────────────────────────
-       RESET & BASE
-    ───────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #030508;
-      --bg2:       #080C14;
-      --bg3:       #0D1220;
-      --blue:      #3B7FE8;
-      --blue-light:#6BA3F5;
-      --silver:    #C8D8F0;
-      --white:     #FFFFFF;
-      --gray:      #7A8BA8;
-      --gray2:     #404D64;
-      --border:    rgba(59,127,232,0.15);
-      --font-head: 'Space Grotesk', sans-serif;
-      --font-body: 'Inter', sans-serif;
-
-      /* alias so CSS references work */
-      --gold:      var(--blue);
-      --gold-light:var(--blue-light);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { cursor: pointer; border: none; background: none; font-family: inherit; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ─────────────────────────────────────
-       NAVIGATION
-    ───────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 20px 0;
-      transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
-    }
-
-    nav.scrolled {
-      background: rgba(4,6,10,0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .nav-logo {
-      font-family: var(--font-head);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-logo img.logo-img {
-      height: 36px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .nav-logo .logo-mark {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, #1a3a6e, #3B7FE8);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 900;
-      color: #FFFFFF;
-      flex-shrink: 0;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray);
-      transition: color 0.2s;
-      letter-spacing: 0.3px;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    /* Language Toggle */
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 4px;
-    }
-
-    .lang-toggle button {
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: var(--gray);
-      transition: all 0.2s;
-    }
-
-    .lang-toggle button.active {
-      background: var(--gold);
-      color: #FFFFFF;
-    }
-
-    /* CTA Button Nav */
-    .btn-nav {
-      background: var(--gold);
-      color: #FFFFFF;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 20px;
-      border-radius: 8px;
-      letter-spacing: 0.3px;
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .btn-nav:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* Mobile menu */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-    }
-
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 28px; font-weight: 700; font-family: var(--font-head); }
-    .mobile-menu .close-btn { position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--gray); }
-
-    /* ─────────────────────────────────────
-       HERO
-    ───────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 120px 0 80px;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,127,232,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 10% 80%, rgba(59,127,232,0.04) 0%, transparent 50%);
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(59,127,232,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59,127,232,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(59,127,232,0.1);
-      border: 1px solid rgba(59,127,232,0.25);
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 32px;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
-
-    .hero-title {
-      font-family: var(--font-head);
-      font-size: clamp(48px, 7vw, 96px);
-      font-weight: 700;
-      line-height: 1.0;
-      letter-spacing: -2px;
-      margin-bottom: 28px;
-    }
-
-    .hero-title .highlight {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-tagline {
-      font-family: var(--font-head);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 4px;
-      color: var(--gray2);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 20px);
-      color: var(--gray);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 48px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: #FFFFFF;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 16px 32px;
-      border-radius: 10px;
-      letter-spacing: 0.2px;
-      transition: all 0.25s;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(59,127,232,0.25);
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      color: var(--white);
-      font-size: 15px;
-      font-weight: 500;
-      padding: 16px 32px;
-      border-radius: 10px;
-      transition: all 0.25s;
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(59,127,232,0.4);
-      background: rgba(59,127,232,0.06);
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: var(--gray2);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: float 2.5s ease-in-out infinite;
-    }
-
-    .hero-scroll::after {
-      content: '';
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--gray2), transparent);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
-    }
-
-    /* ─────────────────────────────────────
-       MARQUEE
-    ───────────────────────────────────── */
-    .marquee-wrapper {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      padding: 18px 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 0;
-      width: max-content;
-      animation: marquee 28s linear infinite;
-    }
-
-    .marquee-track:hover { animation-play-state: paused; }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 32px;
-      font-family: var(--font-head);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gray);
-      white-space: nowrap;
-    }
-
-    .marquee-item .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* ─────────────────────────────────────
-       SECTION HEADERS
-    ───────────────────────────────────── */
-    .section-label {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: var(--font-head);
-      font-size: clamp(32px, 4vw, 56px);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -1px;
-    }
-
-    .section-title .accent {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .section-desc {
-      color: var(--gray);
-      font-size: 17px;
-      line-height: 1.75;
-      max-width: 620px;
-    }
-
-    /* ─────────────────────────────────────
-       ABOUT
-    ───────────────────────────────────── */
-    #about {
-      padding: 120px 0;
-      position: relative;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-text { }
-
-    .about-text .section-desc {
-      margin: 24px 0 48px;
-      max-width: 100%;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 0;
-    }
-
-    .stat-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 28px 24px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-
-    .stat-card:first-child { border-radius: 12px 0 0 0; }
-    .stat-card:nth-child(2) { border-radius: 0 12px 0 0; }
-    .stat-card:nth-child(3) { border-radius: 0 0 0 12px; }
-    .stat-card:last-child { border-radius: 0 0 12px 0; }
-
-    .stat-card:hover { border-color: rgba(59,127,232,0.4); }
-
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .stat-card:hover::before { opacity: 1; }
-
-    .stat-number {
-      font-family: var(--font-head);
-      font-size: 38px;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.4;
-    }
-
-    /* Visual side */
-    .about-visual {
-      position: relative;
-    }
-
-    .about-card-main {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-card-main::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(59,127,232,0.12) 0%, transparent 70%);
-    }
-
-    .about-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .about-quote {
-      font-family: var(--font-head);
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 32px;
-      letter-spacing: -0.3px;
-    }
-
-    .about-pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .pillar {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--gray);
-    }
-
-    .pillar-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(59,127,232,0.1);
-      border: 1px solid rgba(59,127,232,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    /* ─────────────────────────────────────
-       SERVICES
-    ───────────────────────────────────── */
-    #services {
-      padding: 120px 0;
-      background: var(--bg2);
-      position: relative;
-    }
-
-    #services::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.3;
-    }
-
-    .services-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 64px;
-      flex-wrap: wrap;
-      gap: 32px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .service-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 40px 32px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s;
-      cursor: default;
-    }
-
-    .service-card:first-child { border-radius: 12px 0 0 12px; }
-    .service-card:last-child { border-radius: 0 12px 12px 0; }
-
-    .service-card:hover {
-      background: var(--bg3);
-      border-color: rgba(59,127,232,0.3);
-      transform: translateY(-4px);
-      z-index: 1;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-
-    .service-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      transform: scaleX(0);
-      transition: transform 0.3s;
-      transform-origin: left;
-    }
-
-    .service-card:hover::after { transform: scaleX(1); }
-
-    .service-icon {
-      font-size: 32px;
-      margin-bottom: 24px;
-      display: block;
-    }
-
-    .service-number {
-      position: absolute;
-      top: 20px; right: 24px;
-      font-family: var(--font-head);
-      font-size: 48px;
-      font-weight: 800;
-      color: rgba(255,255,255,0.04);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .service-title {
-      font-family: var(--font-head);
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.3px;
-    }
-
-    .service-desc {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* ─────────────────────────────────────
-       NUMBERS / RESULTS
-    ───────────────────────────────────── */
-    #numbers {
-      padding: 120px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #numbers::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(59,127,232,0.05) 0%, transparent 60%);
-    }
-
-    .numbers-title {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-
-    .numbers-title .section-title {
-      font-size: clamp(36px, 5vw, 68px);
-      margin-bottom: 16px;
-    }
-
-    .numbers-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      position: relative;
-    }
-
-    .number-card {
-      text-align: center;
-      padding: 48px 24px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-
-    .number-card:first-child { border-radius: 12px 0 0 12px; }
-    .number-card:last-child { border-radius: 0 12px 12px 0; }
-    .number-card:hover { border-color: rgba(59,127,232,0.35); }
-
-    .big-number {
-      font-family: var(--font-head);
-      font-size: clamp(36px, 4vw, 60px);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .number-desc {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-
-    /* ─────────────────────────────────────
-       WHY AXIOM
-    ───────────────────────────────────── */
-    #why {
-      padding: 120px 0;
-      background: var(--bg2);
-      position: relative;
-    }
-
-    #why::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.3;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .why-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      margin-top: 48px;
-    }
-
-    .why-item {
-      display: flex;
-      gap: 20px;
-      padding: 24px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-
-    .why-item:first-child { border-radius: 12px 12px 0 0; }
-    .why-item:last-child { border-radius: 0 0 12px 12px; }
-
-    .why-item:hover {
-      border-color: rgba(59,127,232,0.3);
-      background: var(--bg3);
-    }
-
-    .why-num {
-      font-family: var(--font-head);
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 1px;
-      flex-shrink: 0;
-      padding-top: 2px;
-    }
-
-    .why-content h4 {
-      font-family: var(--font-head);
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .why-content p {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    /* Visual side */
-    .why-visual {
-      display: grid;
-      gap: 16px;
-    }
-
-    .why-card-top {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .why-card-top::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(59,127,232,0.1), transparent);
-    }
-
-    .vertical-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .why-card-metric {
-      font-family: var(--font-head);
-      font-size: 52px;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .why-card-metric-label {
-      font-size: 14px;
-      color: var(--gray);
-    }
-
-    .why-card-bottom {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .mini-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .mini-card-num {
-      font-family: var(--font-head);
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .mini-card-label {
-      font-size: 13px;
-      color: var(--gray);
-    }
-
-    /* ─────────────────────────────────────
-       CONTACT
-    ───────────────────────────────────── */
-    #contact {
-      padding: 120px 0;
-      position: relative;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .contact-info .section-desc {
-      margin: 24px 0 48px;
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .contact-item-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: rgba(59,127,232,0.1);
-      border: 1px solid rgba(59,127,232,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .contact-item-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-
-    .contact-item-value {
-      font-size: 15px;
-      color: var(--gray);
-    }
-
-    /* Form */
-    .contact-form {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-
-    .form-input,
-    .form-select,
-    .form-textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 14px 16px;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 15px;
-      transition: border-color 0.2s, background 0.2s;
-      outline: none;
-      -webkit-appearance: none;
-    }
-
-    .form-select {
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238892A4' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-color: rgba(255,255,255,0.04);
-      padding-right: 40px;
-    }
-
-    .form-select option { background: #0F1320; color: var(--white); }
-
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus {
-      border-color: rgba(59,127,232,0.5);
-      background: rgba(59,127,232,0.04);
-    }
-
-    .form-textarea { resize: vertical; min-height: 120px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .btn-submit {
-      width: 100%;
-      background: var(--gold);
-      color: #FFFFFF;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 16px;
-      border-radius: 10px;
-      transition: all 0.25s;
-      font-family: var(--font-body);
-      cursor: pointer;
-      border: none;
-      margin-top: 4px;
-    }
-
-    .btn-submit:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(59,127,232,0.25);
-    }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 40px;
-      color: var(--gold);
-      font-family: var(--font-head);
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    /* ─────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────── */
-    footer {
-      padding: 60px 0 32px;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 48px;
-    }
-
-    .footer-brand .nav-logo {
-      margin-bottom: 16px;
-    }
-
-    .footer-tagline {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.7;
-      max-width: 280px;
-      margin-bottom: 24px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      transition: all 0.2s;
-    }
-
-    .social-link:hover {
-      background: rgba(59,127,232,0.15);
-      border-color: rgba(59,127,232,0.3);
-    }
-
-    .footer-col h5 {
-      font-family: var(--font-head);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-    .footer-col a {
-      font-size: 14px;
-      color: var(--gray);
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: var(--gold); }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-copy {
-      font-size: 13px;
-      color: var(--gray2);
-    }
-
-    .footer-copy span { color: var(--gold); }
-
-    /* ─────────────────────────────────────
-       SCROLL ANIMATIONS
-    ───────────────────────────────────── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .fade-up.delay-1 { transition-delay: 0.1s; }
-    .fade-up.delay-2 { transition-delay: 0.2s; }
-    .fade-up.delay-3 { transition-delay: 0.3s; }
-    .fade-up.delay-4 { transition-delay: 0.4s; }
-
-    /* ─────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .about-grid,
-      .why-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-
-      .about-visual { display: none; }
-
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .service-card:nth-child(2) { border-radius: 0 12px 0 0; }
-      .service-card:nth-child(4) { border-radius: 0 0 12px 0; }
-      .service-card:nth-child(3) { border-radius: 0 0 0 12px; }
-
-      .numbers-grid { grid-template-columns: 1fr 1fr; }
-      .number-card:first-child { border-radius: 12px 0 0 0; }
-      .number-card:nth-child(2) { border-radius: 0 12px 0 0; }
-      .number-card:nth-child(3) { border-radius: 0 0 0 12px; }
-      .number-card:last-child { border-radius: 0 0 12px 0; }
-
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links, .btn-nav { display: none; }
-      .hamburger { display: flex; }
-
-      .services-grid { grid-template-columns: 1fr; gap: 16px; }
-      .service-card { border-radius: 12px !important; }
-
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-
-      .numbers-grid { grid-template-columns: 1fr 1fr; }
-
-      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-
-      .form-row { grid-template-columns: 1fr; }
-
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-
-      .lang-toggle { margin-right: auto; }
-
-      .services-header { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 480px) {
-      .numbers-grid { grid-template-columns: 1fr; }
-      .number-card { border-radius: 12px !important; }
-      .why-card-bottom { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axiom Group — Built Different</title>
+<meta name="description" content="A agência de media buying que CEOs de 8 dígitos escolhem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #000000;
+  --bg2:     #05080F;
+  --bg3:     #090D18;
+  --text:    #FFFFFF;
+  --muted:   rgba(255,255,255,0.45);
+  --dim:     rgba(255,255,255,0.18);
+  --blue:    #3B7FE8;
+  --blue2:   #5B9BFF;
+  --blue-glow: rgba(59,127,232,0.22);
+  --chrome:  #A8C0DC;
+  --chrome2: #DCEAFF;
+  --border:  rgba(255,255,255,0.07);
+  --border-b:rgba(59,127,232,0.18);
+  --radius:  12px;
+  --nav-h:   72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+::selection{background:rgba(59,127,232,0.35);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* ── UTILS ── */
+.chrome-text{
+  background:linear-gradient(135deg,#8AAED4 0%,#DCEAFF 38%,#FFFFFF 50%,#A8C0DC 65%,#4A7AC0 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.blue-text{color:var(--blue2)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  height:var(--nav-h);z-index:100;
+  display:flex;align-items:center;
+  padding:0 40px;
+  transition:background .4s,border-color .4s;
+}
+nav.scrolled{
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:17px;letter-spacing:.04em;
+}
+.nav-logo img{height:36px;width:auto}
+.nav-logo .logo-fallback{width:36px;height:36px;display:none}
+.nav-links{
+  display:flex;align-items:center;gap:36px;
+  margin:0 auto;
+  list-style:none;
+}
+.nav-links a{
+  font-size:13px;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);
+  transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-btn{
+  font-size:12px;font-weight:600;letter-spacing:.1em;
+  color:var(--muted);text-transform:uppercase;padding:6px 12px;
+  border:1px solid var(--border);border-radius:20px;
+  transition:all .2s;
+}
+.lang-btn:hover{color:#fff;border-color:rgba(255,255,255,0.25)}
+.nav-cta{
+  font-size:13px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;
+  padding:10px 22px;border-radius:6px;
+  background:var(--blue);color:#fff;
+  transition:all .25s;
+  white-space:nowrap;
+}
+.nav-cta:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(59,127,232,0.4)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  padding:calc(var(--nav-h) + 40px) 24px 80px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 70% 55% at 50% 100%, rgba(59,127,232,0.14) 0%, transparent 70%),
+             radial-gradient(ellipse 40% 40% at 50% 80%, rgba(59,127,232,0.07) 0%, transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 100%, black 0%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 100%, black 0%, transparent 80%);
+}
+.hero-content{
+  position:relative;z-index:1;
+  text-align:center;max-width:900px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blue2);margin-bottom:36px;
+  padding:8px 20px;border:1px solid var(--border-b);border-radius:20px;
+  background:rgba(59,127,232,0.07);
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';display:block;
+  width:16px;height:1px;background:var(--blue2);opacity:.6;
+}
+.hero-logo-mark{
+  width:110px;height:auto;
+  margin:0 auto 44px;
+  filter:drop-shadow(0 0 40px rgba(59,127,232,0.55));
+}
+.hero-logo-mark img{width:100%;height:auto}
+.hero-logo-mark .svg-fallback{width:100%;height:auto}
+.hero-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(52px,8vw,96px);
+  font-weight:800;
+  line-height:1.0;
+  letter-spacing:-.02em;
+  margin-bottom:28px;
+}
+.hero-title em{font-style:normal;display:block;margin-bottom:4px}
+.hero-sub{
+  font-size:clamp(16px,2vw,20px);
+  font-weight:300;
+  color:var(--muted);
+  max-width:580px;
+  margin:0 auto 48px;
+  line-height:1.65;
+}
+.hero-actions{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:16px 36px;border-radius:8px;
+  background:var(--blue);color:#fff;
+  transition:all .25s;
+  position:relative;overflow:hidden;
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  opacity:0;transition:opacity .25s;
+}
+.btn-primary:hover{
+  background:var(--blue2);
+  transform:translateY(-2px);
+  box-shadow:0 12px 36px rgba(59,127,232,0.45);
+}
+.btn-primary:hover::after{opacity:1}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:15px 32px;border-radius:8px;
+  border:1px solid rgba(255,255,255,0.15);color:var(--chrome2);
+  transition:all .25s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff;background:rgba(255,255,255,0.04)}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);
+}
+.scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,var(--blue),transparent);
+  animation:scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* ── MARQUEE ── */
+.marquee-section{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--bg2);
+  overflow:hidden;padding:18px 0;
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marquee 30s linear infinite;
+}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:16px;
+  padding:0 32px;
+  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);
+}
+.marquee-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:var(--blue);flex-shrink:0;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── STATS ── */
+#stats{padding:120px 0;background:var(--bg)}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--border);
+}
+.stat-card{
+  background:var(--bg2);
+  padding:52px 40px;
+  position:relative;
+  transition:background .3s;
+}
+.stat-card:hover{background:var(--bg3)}
+.stat-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.stat-card:hover::before{opacity:1}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(40px,4vw,64px);
+  font-weight:800;
+  line-height:1;
+  margin-bottom:8px;
+}
+.stat-label{
+  font-size:12px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
+}
+.stat-sub{font-size:11px;color:var(--dim);margin-top:4px}
+
+/* ── SECTION HEADER ── */
+.section-header{text-align:center;margin-bottom:72px}
+.section-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blue2);margin-bottom:20px;
+}
+.section-tag::before,.section-tag::after{content:'';display:block;width:20px;height:1px;background:currentColor;opacity:.5}
+.section-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(32px,4vw,56px);
+  font-weight:700;line-height:1.1;
+  letter-spacing:-.02em;margin-bottom:16px;
+}
+.section-desc{font-size:17px;color:var(--muted);max-width:540px;margin:0 auto;font-weight:300;line-height:1.65}
+
+/* ── SERVICES ── */
+#services{padding:120px 0;background:var(--bg2)}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+}
+.service-card{
+  background:var(--bg2);padding:48px 40px;
+  position:relative;transition:background .35s;overflow:hidden;
+}
+.service-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 80% at 50% 120%,rgba(59,127,232,0.09),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.service-card:hover{background:var(--bg3)}
+.service-card:hover::after{opacity:1}
+.service-icon{
+  width:44px;height:44px;border:1px solid var(--border-b);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:28px;background:rgba(59,127,232,0.07);
+  color:var(--blue2);font-size:18px;
+  transition:border-color .3s,background .3s;
+}
+.service-card:hover .service-icon{border-color:rgba(59,127,232,0.4);background:rgba(59,127,232,0.14)}
+.service-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:20px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em;
+}
+.service-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ── WHY ── */
+#why{padding:120px 0;background:var(--bg)}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-left .section-header{text-align:left;margin-bottom:40px}
+.why-left .section-header .section-tag{justify-content:flex-start}
+.why-left .section-header .section-tag::before{display:none}
+.why-statement{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(24px,2.5vw,34px);font-weight:700;
+  line-height:1.25;letter-spacing:-.01em;
+  margin-bottom:32px;
+}
+.why-body{font-size:16px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:40px}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.why-list li{display:flex;align-items:flex-start;gap:14px;font-size:15px;font-weight:400}
+.why-list li .check{
+  width:20px;height:20px;border-radius:50%;
+  background:rgba(59,127,232,0.15);border:1px solid rgba(59,127,232,0.35);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;font-size:10px;color:var(--blue2);
+}
+.why-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.why-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:36px 28px;
+  transition:border-color .3s,transform .3s;
+}
+.why-card:hover{border-color:var(--border-b);transform:translateY(-4px)}
+.why-card-num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:800;line-height:1;margin-bottom:10px}
+.why-card-title{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.why-card-desc{font-size:13px;color:var(--dim);line-height:1.6}
+
+/* ── PROCESS ── */
+#process{padding:120px 0;background:var(--bg2);border-top:1px solid var(--border)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{
+  content:'';position:absolute;top:28px;left:10%;right:10%;
+  height:1px;background:var(--border-b);z-index:0;
+}
+.step{position:relative;z-index:1;text-align:center;padding:0 24px}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  border:1px solid var(--border-b);background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;
+  color:var(--blue2);margin:0 auto 28px;position:relative;
+}
+.step-num::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid rgba(59,127,232,0.12);
+}
+.step-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;margin-bottom:10px}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ── CTA BAND ── */
+#cta-band{padding:120px 0;background:var(--bg);position:relative;overflow:hidden}
+#cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 100% at 50% 100%,rgba(59,127,232,0.12),transparent);
+}
+.cta-band-inner{
+  position:relative;z-index:1;text-align:center;
+  border:1px solid var(--border-b);border-radius:20px;
+  padding:80px 60px;background:rgba(59,127,232,0.04);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.cta-band-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);margin-bottom:24px}
+.cta-band-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(36px,5vw,64px);font-weight:800;
+  line-height:1.0;letter-spacing:-.02em;margin-bottom:24px;
+}
+.cta-band-sub{font-size:18px;color:var(--muted);font-weight:300;margin-bottom:48px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* ── CONTACT ── */
+#contact{padding:120px 0;background:var(--bg2);border-top:1px solid var(--border)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left .section-header{text-align:left;margin-bottom:32px}
+.contact-left .section-header .section-tag{justify-content:flex-start}
+.contact-left .section-header .section-tag::before{display:none}
+.contact-detail{display:flex;flex-direction:column;gap:20px;margin-top:32px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.contact-item:last-child{border-bottom:none;padding-bottom:0}
+.contact-item-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(59,127,232,0.08);border:1px solid var(--border-b);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--blue2);flex-shrink:0;
+}
+.contact-item-text{font-size:14px;font-weight:400;color:var(--muted);line-height:1.5}
+.contact-item-title{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.form-input,.form-textarea,.form-select{
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:8px;padding:14px 18px;
+  font-size:15px;color:#fff;font-family:inherit;
+  transition:border-color .2s,background .2s;outline:none;
+  -webkit-appearance:none;appearance:none;
+}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--dim)}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(59,127,232,0.4);background:rgba(59,127,232,0.04)}
+.form-textarea{resize:vertical;min-height:120px}
+.form-submit{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:16px 36px;border-radius:8px;
+  background:var(--blue);color:#fff;
+  font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  font-family:inherit;cursor:pointer;transition:all .25s;border:none;width:100%;
+}
+.form-submit:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(59,127,232,0.4)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 40px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:.04em;margin-bottom:16px;
+}
+.footer-logo img{height:32px;width:auto}
+.footer-logo .logo-fallback{width:32px;height:32px;display:none}
+.footer-tagline{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;max-width:240px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:14px;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:32px;border-top:1px solid var(--border);
+  font-size:12px;color:var(--dim);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(59,127,232,0.4)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-inner{grid-template-columns:1fr;gap:60px}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:40px}
+  .process-steps::before{display:none}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:40px}
+  nav{padding:0 24px}
+  .nav-links{display:none}
+}
+@media(max-width:768px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .why-right{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr;gap:48px}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  .cta-band-inner{padding:60px 32px}
+  .hero-actions{flex-direction:column}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+  .stat-card{padding:36px 24px}
+  .service-card{padding:36px 28px}
+}
+</style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════
-       NAVIGATION
-  ════════════════════════════════════ -->
-  <nav id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#" class="nav-logo">
-          <img src="assets/logo.png" alt="Axiom Group" class="logo-img"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="logo-mark" style="display:none">A</div>
-          <span id="nav-logo-text" style="display:none">Axiom Group</span>
-        </a>
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <img src="assets/logo.png" alt="Axiom Group"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <svg class="logo-fallback" viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="nav-lg" x1="20" y1="0" x2="20" y2="46" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#DCEAFF"/>
+          <stop offset="50%" stop-color="#7AAEE8"/>
+          <stop offset="100%" stop-color="#2A60C8"/>
+        </linearGradient>
+      </defs>
+      <path d="M20 2 L38 38 L28 38 L20 16 L12 38 L2 38 Z" fill="url(#nav-lg)"/>
+      <path d="M2 38 L8 46 L16 38 Z" fill="#4A80D4" opacity=".9"/>
+      <path d="M38 38 L32 46 L24 38 Z" fill="#2A5CB8" opacity=".9"/>
+    </svg>
+    <span class="chrome-text">AXIOM GROUP</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+    <li><a href="#stats" data-pt="Resultados" data-en="Results">Resultados</a></li>
+    <li><a href="#why" data-pt="Por que nós" data-en="Why us">Por que nós</a></li>
+    <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <a href="#contact" class="nav-cta" data-pt="Falar com especialista" data-en="Talk to us">Falar com especialista</a>
+  </div>
+</nav>
 
-        <ul class="nav-links">
-          <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
-          <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
-          <li><a href="#numbers" data-pt="Resultados" data-en="Results">Resultados</a></li>
-          <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span data-pt="Agência de Media Buying" data-en="Media Buying Agency">Agência de Media Buying</span>
+    </div>
+
+    <!-- Logo mark: real PNG com SVG fallback -->
+    <div class="hero-logo-mark">
+      <img src="assets/logo.png" alt="Axiom Group"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg class="svg-fallback" style="display:none" viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="h-left" x1="100" y1="0" x2="20" y2="190" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#DCEAFF"/>
+            <stop offset="60%" stop-color="#7AAEE8"/>
+            <stop offset="100%" stop-color="#1A4A90"/>
+          </linearGradient>
+          <linearGradient id="h-right" x1="100" y1="0" x2="180" y2="190" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="60%" stop-color="#5A90DC"/>
+            <stop offset="100%" stop-color="#0A3070"/>
+          </linearGradient>
+          <radialGradient id="h-glow" cx="50%" cy="90%" r="40%">
+            <stop offset="0%" stop-color="#3B7FE8" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#3B7FE8" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="h-blur"><feGaussianBlur stdDeviation="8"/></filter>
+        </defs>
+        <ellipse cx="100" cy="200" rx="70" ry="28" fill="url(#h-glow)" filter="url(#h-blur)"/>
+        <path d="M100 8 L20 185 L56 185 L100 72 Z" fill="url(#h-left)"/>
+        <path d="M100 8 L180 185 L144 185 L100 72 Z" fill="url(#h-right)"/>
+        <path d="M100 72 L56 185 L144 185 Z" fill="#000" opacity=".95"/>
+        <path d="M100 72 L56 185 L144 185 Z" fill="url(#h-glow)" opacity=".3"/>
+        <path d="M20 185 L4 215 L50 215 L56 185 Z" fill="url(#h-left)" opacity=".9"/>
+        <path d="M180 185 L196 215 L150 215 L144 185 Z" fill="url(#h-right)" opacity=".9"/>
+        <path d="M100 8 L20 185" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+        <path d="M100 8 L180 185" stroke="rgba(200,220,255,0.3)" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <h1 class="hero-title">
+      <em class="chrome-text" data-pt="Tráfego que converte." data-en="Traffic that converts.">Tráfego que converte.</em>
+      <span data-pt="Escala que impõe respeito." data-en="Scale that commands respect.">Escala que impõe respeito.</span>
+    </h1>
+    <p class="hero-sub"
+       data-pt="A agência de media buying que CEOs de 8 dígitos escolhem quando querem resultados — não desculpas."
+       data-en="The media buying agency that 8-figure CEOs choose when they want results — not excuses.">
+      A agência de media buying que CEOs de 8 dígitos escolhem quando querem resultados — não desculpas.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary"
+         data-pt="Quero escalar agora →" data-en="Scale now →">Quero escalar agora →</a>
+      <a href="#stats" class="btn-ghost"
+         data-pt="Ver resultados" data-en="See results">Ver resultados</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ── STATS ── -->
+<section id="stats">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag" data-pt="Números" data-en="Numbers">Números</div>
+      <h2 class="section-title" data-pt="Resultados que falam por si" data-en="Results that speak for themselves">Resultados que falam por si</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-num chrome-text">R$50M+</div>
+        <div class="stat-label" data-pt="Em tráfego gerenciado" data-en="In managed ad spend">Em tráfego gerenciado</div>
+        <div class="stat-sub" data-pt="Investimento total gerenciado" data-en="Total investment managed">Investimento total gerenciado</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-num chrome-text">300+</div>
+        <div class="stat-label" data-pt="Campanhas executadas" data-en="Campaigns executed">Campanhas executadas</div>
+        <div class="stat-sub" data-pt="Em múltiplos mercados" data-en="Across multiple markets">Em múltiplos mercados</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-num chrome-text">8.2x</div>
+        <div class="stat-label" data-pt="ROAS médio" data-en="Average ROAS">ROAS médio</div>
+        <div class="stat-sub" data-pt="Retorno sobre investimento" data-en="Return on ad spend">Retorno sobre investimento</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-num chrome-text">12</div>
+        <div class="stat-label" data-pt="Países atendidos" data-en="Countries served">Países atendidos</div>
+        <div class="stat-sub" data-pt="Presença global com expertise local" data-en="Global presence, local expertise">Presença global com expertise local</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag" data-pt="Serviços" data-en="Services">Serviços</div>
+      <h2 class="section-title" data-pt="O que fazemos" data-en="What we do">O que fazemos</h2>
+      <p class="section-desc"
+         data-pt="Cada serviço é uma arma de precisão para escalar seu negócio no digital."
+         data-en="Each service is a precision weapon to scale your business online.">
+        Cada serviço é uma arma de precisão para escalar seu negócio no digital.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M16 8h-6a2 2 0 100 4h4a2 2 0 110 4H8"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="18"/></svg>
+        </div>
+        <div class="service-title">Meta Ads</div>
+        <div class="service-desc"
+             data-pt="Dominamos Facebook e Instagram com criativos que param o scroll e campanhas que escalam sem perder eficiência."
+             data-en="We dominate Facebook and Instagram with thumb-stopping creatives and campaigns that scale without losing efficiency.">
+          Dominamos Facebook e Instagram com criativos que param o scroll e campanhas que escalam sem perder eficiência.
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="service-title">Google Ads</div>
+        <div class="service-desc"
+             data-pt="Search, Display e YouTube com precisão cirúrgica. Capturamos a intenção do cliente no momento certo."
+             data-en="Search, Display and YouTube with surgical precision. We capture customer intent at the perfect moment.">
+          Search, Display e YouTube com precisão cirúrgica. Capturamos a intenção do cliente no momento certo.
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="service-title">TikTok Ads</div>
+        <div class="service-desc"
+             data-pt="Criativos nativos de alta performance onde a concorrência ainda não chegou. Atenção e conversão ao mesmo tempo."
+             data-en="High-performance native creatives where competitors haven't arrived yet. Attention and conversion at once.">
+          Criativos nativos de alta performance onde a concorrência ainda não chegou. Atenção e conversão ao mesmo tempo.
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="service-title" data-pt="Criativos Estratégicos" data-en="Strategic Creatives">Criativos Estratégicos</div>
+        <div class="service-desc"
+             data-pt="VSLs, banners e copies que são armas de conversão. Psicologia de vendas com intenção de resultado em cada peça."
+             data-en="VSLs, banners and copy that are conversion weapons. Sales psychology with result-driven intent in every piece.">
+          VSLs, banners e copies que são armas de conversão. Psicologia de vendas com intenção de resultado em cada peça.
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="service-title" data-pt="Analytics & Data" data-en="Analytics & Data">Analytics & Data</div>
+        <div class="service-desc"
+             data-pt="Dashboards em tempo real, attribution precisa e insights que revelam onde seu dinheiro realmente performa."
+             data-en="Real-time dashboards, precise attribution and insights that reveal where your money actually performs.">
+          Dashboards em tempo real, attribution precisa e insights que revelam onde seu dinheiro realmente performa.
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="service-title" data-pt="Estratégia de Escala" data-en="Scale Strategy">Estratégia de Escala</div>
+        <div class="service-desc"
+             data-pt="Da prova de conceito ao 8 dígitos — o playbook completo para escalar com previsibilidade e margem protegida."
+             data-en="From proof of concept to 8 figures — the complete playbook to scale with predictability and protected margins.">
+          Da prova de conceito ao 8 dígitos — o playbook completo para escalar com previsibilidade e margem protegida.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-left fade-up">
+        <div class="section-header">
+          <div class="section-tag" data-pt="Diferencial" data-en="Advantage">Diferencial</div>
+          <h2 class="section-title" data-pt="Por que a Axiom" data-en="Why Axiom">Por que a Axiom</h2>
+        </div>
+        <p class="why-statement chrome-text"
+           data-pt="Não vendemos promessas. Entregamos sistemas de crescimento."
+           data-en="We don't sell promises. We deliver growth systems.">
+          Não vendemos promessas. Entregamos sistemas de crescimento.
+        </p>
+        <p class="why-body"
+           data-pt="Enquanto outras agências jogam dinheiro em tráfego e torcem pro resultado, a Axiom constrói máquinas de aquisição baseadas em dados, testes e escala estruturada. Seu ROI não é sorte — é arquitetura."
+           data-en="While other agencies throw money at traffic and hope for results, Axiom builds data-driven acquisition machines based on testing and structured scaling. Your ROI isn't luck — it's architecture.">
+          Enquanto outras agências jogam dinheiro em tráfego e torcem pro resultado, a Axiom constrói máquinas de aquisição baseadas em dados, testes e escala estruturada. Seu ROI não é sorte — é arquitetura.
+        </p>
+        <ul class="why-list">
+          <li><span class="check">✓</span><span data-pt="Equipe sênior dedicada — sem juniors gerindo sua conta" data-en="Dedicated senior team — no juniors managing your account">Equipe sênior dedicada — sem juniors gerindo sua conta</span></li>
+          <li><span class="check">✓</span><span data-pt="Relatórios e dados em tempo real, sem enrolação" data-en="Real-time reports and data, no fluff">Relatórios e dados em tempo real, sem enrolação</span></li>
+          <li><span class="check">✓</span><span data-pt="Sem contratos longos — resultado garante a permanência" data-en="No long contracts — results guarantee retention">Sem contratos longos — resultado garante a permanência</span></li>
+          <li><span class="check">✓</span><span data-pt="Estratégia customizada para o seu mercado e suas margens" data-en="Custom strategy for your market and margins">Estratégia customizada para o seu mercado e suas margens</span></li>
         </ul>
-
-        <div class="nav-right">
-          <div class="lang-toggle">
-            <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
-            <button id="btn-en" onclick="setLang('en')">EN</button>
-          </div>
-          <a href="#contact" class="btn-nav" data-pt="Fale Conosco" data-en="Get in Touch">Fale Conosco</a>
-        </div>
-
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
       </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="close-btn" id="close-menu">✕</button>
-    <a href="#about" class="mobile-link" data-pt="Sobre" data-en="About" onclick="closeMobile()">Sobre</a>
-    <a href="#services" class="mobile-link" data-pt="Serviços" data-en="Services" onclick="closeMobile()">Serviços</a>
-    <a href="#numbers" class="mobile-link" data-pt="Resultados" data-en="Results" onclick="closeMobile()">Resultados</a>
-    <a href="#contact" class="mobile-link" data-pt="Contato" data-en="Contact" onclick="closeMobile()">Contato</a>
-    <div class="lang-toggle" style="margin-top:8px">
-      <button id="btn-pt-m" class="active" onclick="setLang('pt'); closeMobile()">PT</button>
-      <button id="btn-en-m" onclick="setLang('en'); closeMobile()">EN</button>
+      <div class="why-right fade-up">
+        <div class="why-card">
+          <div class="why-card-num blue-text">01</div>
+          <div class="why-card-title" data-pt="Data-Driven" data-en="Data-Driven">Data-Driven</div>
+          <div class="why-card-desc" data-pt="Decisões baseadas em números, não em achismo. Cada otimização tem razão técnica e resultado mensurável." data-en="Decisions based on numbers, not guesswork. Every optimization has a technical reason and measurable result.">Decisões baseadas em números, não em achismo. Cada otimização tem razão técnica e resultado mensurável.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-num blue-text">02</div>
+          <div class="why-card-title" data-pt="Velocidade" data-en="Speed">Velocidade</div>
+          <div class="why-card-desc" data-pt="Mercado muda rápido. Respondemos mais rápido. Sem burocracia, sem espera, sem desculpa." data-en="Markets move fast. We move faster. No bureaucracy, no waiting, no excuses.">Mercado muda rápido. Respondemos mais rápido. Sem burocracia, sem espera, sem desculpa.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-num blue-text">03</div>
+          <div class="why-card-title" data-pt="ROI Primeiro" data-en="ROI First">ROI Primeiro</div>
+          <div class="why-card-desc" data-pt="Cada real existe para retornar mais. Não gerenciamos budget — gerenciamos o lucro do seu negócio." data-en="Every dollar exists to return more. We don't manage budgets — we manage your business profit.">Cada real existe para retornar mais. Não gerenciamos budget — gerenciamos o lucro do seu negócio.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-num blue-text">04</div>
+          <div class="why-card-title" data-pt="Escala Real" data-en="Real Scale">Escala Real</div>
+          <div class="why-card-desc" data-pt="Escala sustentável, com estrutura e margens protegidas. Crescimento que não quebra quando escala." data-en="Sustainable scale with structure and protected margins. Growth that doesn't break when it scales.">Escala sustentável, com estrutura e margens protegidas. Crescimento que não quebra quando escala.</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══════════════════════════════════
-       HERO
-  ════════════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge" data-pt="Especialistas em Media Buying Global" data-en="Global Media Buying Specialists">
-          Especialistas em Media Buying Global
-        </div>
-
-        <h1 class="hero-title">
-          <span id="hero-line1">Dominamos</span><br />
-          <span id="hero-line2" class="highlight">o tráfego.</span><br />
-          <span id="hero-line3">Escalamos resultados.</span>
-        </h1>
-
-        <p class="hero-tagline">— BUILT DIFFERENT —</p>
-
-        <p class="hero-sub" id="hero-sub">
-          A Axiom Group é uma agência brasileira especializada em compra de mídia e tráfego pago para o mercado internacional. Transformamos investimento em resultado com precisão, dados e criatividade.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#contact" class="btn-primary" id="hero-cta1">
-            Fale com a Axiom
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="#services" class="btn-ghost" id="hero-cta2">
-            Nossos Serviços
-          </a>
-        </div>
-      </div>
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag" data-pt="Processo" data-en="Process">Processo</div>
+      <h2 class="section-title" data-pt="Como trabalhamos" data-en="How we work">Como trabalhamos</h2>
     </div>
-    <div class="hero-scroll" id="hero-scroll">SCROLL</div>
-  </section>
-
-  <!-- ═══════════════════════════════════
-       MARQUEE
-  ════════════════════════════════════ -->
-  <div class="marquee-wrapper">
-    <div class="marquee-track" id="marquee-track">
-      <!-- items injected by JS based on language -->
+    <div class="process-steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <div class="step-title" data-pt="Diagnóstico" data-en="Diagnosis">Diagnóstico</div>
+        <div class="step-desc" data-pt="Auditamos seu funil, criativos e dados para identificar onde está o dinheiro deixado na mesa." data-en="We audit your funnel, creatives and data to identify where money is being left on the table.">Auditamos seu funil, criativos e dados para identificar onde está o dinheiro deixado na mesa.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <div class="step-title" data-pt="Estratégia" data-en="Strategy">Estratégia</div>
+        <div class="step-desc" data-pt="Desenvolvemos um playbook customizado: plataformas, criativos, budget e metas de escala bem definidas." data-en="We develop a custom playbook: platforms, creatives, budget and well-defined scale targets.">Desenvolvemos um playbook customizado: plataformas, criativos, budget e metas de escala bem definidas.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <div class="step-title" data-pt="Execução" data-en="Execution">Execução</div>
+        <div class="step-desc" data-pt="Lançamos, testamos e otimizamos com agilidade. A máquina ganha velocidade sem perder eficiência." data-en="We launch, test and optimize with agility. The machine gains speed without losing efficiency.">Lançamos, testamos e otimizamos com agilidade. A máquina ganha velocidade sem perder eficiência.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">04</div>
+        <div class="step-title" data-pt="Escala" data-en="Scale">Escala</div>
+        <div class="step-desc" data-pt="Com o que funciona validado, escalamos com responsabilidade para maximizar retorno e proteger margens." data-en="With validated wins, we scale responsibly to maximize returns and protect margins.">Com o que funciona validado, escalamos com responsabilidade para maximizar retorno e proteger margens.</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══════════════════════════════════
-       ABOUT
-  ════════════════════════════════════ -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text fade-up">
-          <span class="section-label" data-pt="SOBRE NÓS" data-en="ABOUT US">SOBRE NÓS</span>
-          <h2 class="section-title" id="about-title">
-            Prazer,<br /><span class="accent">Axiom Group.</span>
-          </h2>
-          <p class="section-desc fade-up delay-1" id="about-desc">
-            Somos uma agência brasileira especializada em media buying e tráfego pago para o mercado internacional. Com foco total em performance, gerenciamos campanhas de alto volume em YouTube Ads, Native Ads e outras plataformas globais.
-          </p>
-
-          <div class="stats-grid fade-up delay-2">
-            <div class="stat-card">
-              <div class="stat-number">$50M+</div>
-              <div class="stat-label" data-pt="Investidos em tráfego pago" data-en="Invested in paid traffic">Investidos em tráfego pago</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">10+</div>
-              <div class="stat-label" data-pt="Países de atuação" data-en="Countries of operation">Países de atuação</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">8+</div>
-              <div class="stat-label" data-pt="Anos de mercado" data-en="Years in the market">Anos de mercado</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">100+</div>
-              <div class="stat-label" data-pt="Campanhas lançadas" data-en="Campaigns launched">Campanhas lançadas</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-visual fade-up delay-2">
-          <div class="about-card-main">
-            <div class="about-tag" data-pt="NOSSA FILOSOFIA" data-en="OUR PHILOSOPHY">NOSSA FILOSOFIA</div>
-            <p class="about-quote" id="about-quote">
-              "Todo investimento em mídia deve gerar resultado mensurável. Esse é o único padrão que aceitamos."
-            </p>
-            <div class="about-pillars">
-              <div class="pillar">
-                <div class="pillar-icon">📊</div>
-                <span data-pt="Decisões orientadas por dados" data-en="Data-driven decisions">Decisões orientadas por dados</span>
-              </div>
-              <div class="pillar">
-                <div class="pillar-icon">🎯</div>
-                <span data-pt="Criatividade de alta performance" data-en="High-performance creatives">Criatividade de alta performance</span>
-              </div>
-              <div class="pillar">
-                <div class="pillar-icon">⚡</div>
-                <span data-pt="Execução ágil e escalável" data-en="Agile and scalable execution">Execução ágil e escalável</span>
-              </div>
-              <div class="pillar">
-                <div class="pillar-icon">🌍</div>
-                <span data-pt="Operações globais" data-en="Global operations">Operações globais</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- ── CTA BAND ── -->
+<section id="cta-band">
+  <div class="container">
+    <div class="cta-band-inner fade-up">
+      <div class="cta-band-label" data-pt="Pronto para escalar?" data-en="Ready to scale?">Pronto para escalar?</div>
+      <h2 class="cta-band-title">
+        <span class="chrome-text" data-pt="Construído diferente." data-en="Built different.">Construído diferente.</span><br>
+        <span data-pt="Para negócios diferentes." data-en="For different businesses.">Para negócios diferentes.</span>
+      </h2>
+      <p class="cta-band-sub"
+         data-pt="Uma conversa de 30 minutos pode mudar a trajetória do seu negócio."
+         data-en="A 30-minute conversation can change your business trajectory.">
+        Uma conversa de 30 minutos pode mudar a trajetória do seu negócio.
+      </p>
+      <a href="#contact" class="btn-primary" style="display:inline-flex"
+         data-pt="Quero uma análise gratuita →" data-en="Get a free analysis →">
+        Quero uma análise gratuita →
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════
-       SERVICES
-  ════════════════════════════════════ -->
-  <section id="services">
-    <div class="container">
-      <div class="services-header">
-        <div>
-          <span class="section-label" data-pt="O QUE FAZEMOS" data-en="WHAT WE DO">O QUE FAZEMOS</span>
-          <h2 class="section-title fade-up" id="services-title">
-            Nossos<br /><span class="accent">Serviços</span>
-          </h2>
-        </div>
-        <p class="section-desc fade-up delay-1" style="max-width:360px" id="services-desc">
-          Cada solução é desenhada para maximizar seu ROI no mercado global.
-        </p>
-      </div>
-
-      <div class="services-grid">
-
-        <div class="service-card fade-up">
-          <span class="service-number">01</span>
-          <span class="service-icon">📺</span>
-          <h3 class="service-title" data-pt="Media Buying" data-en="Media Buying">Media Buying</h3>
-          <p class="service-desc" data-pt="Compra de mídia estratégica em YouTube Ads, Native Ads e plataformas de tráfego global. Gerenciamos orçamentos de alto volume com foco em CPA e ROAS." data-en="Strategic media buying on YouTube Ads, Native Ads, and global traffic platforms. We manage high-volume budgets focused on CPA and ROAS.">
-            Compra de mídia estratégica em YouTube Ads, Native Ads e plataformas de tráfego global. Gerenciamos orçamentos de alto volume com foco em CPA e ROAS.
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left fade-up">
+        <div class="section-header">
+          <div class="section-tag" data-pt="Contato" data-en="Contact">Contato</div>
+          <h2 class="section-title" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</h2>
+          <p class="section-desc" style="text-align:left;margin:0"
+             data-pt="Preencha o formulário e um especialista entrará em contato em até 24h."
+             data-en="Fill the form and a specialist will reach out within 24h.">
+            Preencha o formulário e um especialista entrará em contato em até 24h.
           </p>
         </div>
-
-        <div class="service-card fade-up delay-1">
-          <span class="service-number">02</span>
-          <span class="service-icon">🎨</span>
-          <h3 class="service-title" data-pt="Criativos & VSLs" data-en="Creatives & VSLs">Criativos & VSLs</h3>
-          <p class="service-desc" data-pt="Produção de anúncios de alta performance — vídeos, banners e VSLs que convertem. Do conceito à entrega, com testes contínuos." data-en="Production of high-performance ads — videos, banners, and VSLs that convert. From concept to delivery, with continuous testing.">
-            Produção de anúncios de alta performance — vídeos, banners e VSLs que convertem. Do conceito à entrega, com testes contínuos.
-          </p>
-        </div>
-
-        <div class="service-card fade-up delay-2">
-          <span class="service-number">03</span>
-          <span class="service-icon">🔬</span>
-          <h3 class="service-title" data-pt="Testes & Otimização" data-en="Testing & Optimization">Testes & Otimização</h3>
-          <p class="service-desc" data-pt="Metodologia rigorosa de A/B testing para criativos, audiências e ofertas. Otimização contínua para maximizar performance." data-en="Rigorous A/B testing methodology for creatives, audiences, and offers. Continuous optimization to maximize performance.">
-            Metodologia rigorosa de A/B testing para criativos, audiências e ofertas. Otimização contínua para maximizar performance.
-          </p>
-        </div>
-
-        <div class="service-card fade-up delay-1">
-          <span class="service-number">04</span>
-          <span class="service-icon">🚀</span>
-          <h3 class="service-title" data-pt="Funil de Vendas" data-en="Sales Funnel">Funil de Vendas</h3>
-          <p class="service-desc" data-pt="Criação e otimização de funis de alta conversão — do clique até a compra. Upsells, order bumps e backend estruturado." data-en="Creation and optimization of high-conversion funnels — from click to purchase. Upsells, order bumps, and structured backend.">
-            Criação e otimização de funis de alta conversão — do clique até a compra. Upsells, order bumps e backend estruturado.
-          </p>
-        </div>
-
-        <div class="service-card fade-up delay-2">
-          <span class="service-number">05</span>
-          <span class="service-icon">📈</span>
-          <h3 class="service-title" data-pt="Analytics & BI" data-en="Analytics & BI">Analytics & BI</h3>
-          <p class="service-desc" data-pt="Dashboards em tempo real com KPIs que importam. Decisões baseadas em dados precisos, não em intuição." data-en="Real-time dashboards with the KPIs that matter. Decisions based on precise data, not intuition.">
-            Dashboards em tempo real com KPIs que importam. Decisões baseadas em dados precisos, não em intuição.
-          </p>
-        </div>
-
-        <div class="service-card fade-up delay-3">
-          <span class="service-number">06</span>
-          <span class="service-icon">🤝</span>
-          <h3 class="service-title" data-pt="Programa de Afiliados" data-en="Affiliate Program">Programa de Afiliados</h3>
-          <p class="service-desc" data-pt="Parcerias estratégicas com afiliados de alta performance. Comissões competitivas, suporte dedicado e materiais exclusivos." data-en="Strategic partnerships with high-performance affiliates. Competitive commissions, dedicated support, and exclusive materials.">
-            Parcerias estratégicas com afiliados de alta performance. Comissões competitivas, suporte dedicado e materiais exclusivos.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════
-       NUMBERS
-  ════════════════════════════════════ -->
-  <section id="numbers">
-    <div class="container">
-      <div class="numbers-title fade-up">
-        <span class="section-label" data-pt="NOSSOS NÚMEROS" data-en="OUR NUMBERS">NOSSOS NÚMEROS</span>
-        <h2 class="section-title" id="numbers-title">
-          Resultados que<br /><span class="accent">falam por si.</span>
-        </h2>
-      </div>
-
-      <div class="numbers-grid">
-        <div class="number-card fade-up">
-          <div class="big-number">$50M+</div>
-          <div class="number-desc" data-pt="em tráfego pago gerenciado" data-en="in managed paid traffic">em tráfego pago gerenciado</div>
-        </div>
-        <div class="number-card fade-up delay-1">
-          <div class="big-number">300%</div>
-          <div class="number-desc" data-pt="de ROAS médio nas campanhas" data-en="average ROAS on campaigns">de ROAS médio nas campanhas</div>
-        </div>
-        <div class="number-card fade-up delay-2">
-          <div class="big-number">10+</div>
-          <div class="number-desc" data-pt="países com operações ativas" data-en="countries with active operations">países com operações ativas</div>
-        </div>
-        <div class="number-card fade-up delay-3">
-          <div class="big-number">100+</div>
-          <div class="number-desc" data-pt="campanhas vencedoras lançadas" data-en="winning campaigns launched">campanhas vencedoras lançadas</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════
-       WHY AXIOM
-  ════════════════════════════════════ -->
-  <section id="why">
-    <div class="container">
-      <div class="why-grid">
-        <div>
-          <span class="section-label" data-pt="POR QUE A AXIOM" data-en="WHY AXIOM">POR QUE A AXIOM</span>
-          <h2 class="section-title fade-up" id="why-title">
-            O que nos<br /><span class="accent">diferencia.</span>
-          </h2>
-
-          <div class="why-list">
-            <div class="why-item fade-up delay-1">
-              <span class="why-num">01</span>
-              <div class="why-content">
-                <h4 data-pt="Escala com Consistência" data-en="Scale with Consistency">Escala com Consistência</h4>
-                <p data-pt="Não apenas lançamos campanhas — construímos sistemas que escalam de forma sustentável, mantendo CPA estável no crescimento." data-en="We don't just launch campaigns — we build systems that scale sustainably, keeping CPA stable as you grow.">
-                  Não apenas lançamos campanhas — construímos sistemas que escalam de forma sustentável, mantendo CPA estável no crescimento.
-                </p>
-              </div>
-            </div>
-            <div class="why-item fade-up delay-2">
-              <span class="why-num">02</span>
-              <div class="why-content">
-                <h4 data-pt="Criativos Disruptivos" data-en="Disruptive Creatives">Criativos Disruptivos</h4>
-                <p data-pt="Nossa equipe criativa produz VSLs e anúncios que quebram padrões e geram CTR e conversões acima da média do mercado." data-en="Our creative team produces VSLs and ads that break patterns and generate above-market CTR and conversion rates.">
-                  Nossa equipe criativa produz VSLs e anúncios que quebram padrões e geram CTR e conversões acima da média do mercado.
-                </p>
-              </div>
-            </div>
-            <div class="why-item fade-up delay-3">
-              <span class="why-num">03</span>
-              <div class="why-content">
-                <h4 data-pt="Estrutura de Contingência" data-en="Contingency Structure">Estrutura de Contingência</h4>
-                <p data-pt="Contas backup, pixels alternativos e redundância total. Suas campanhas nunca param — mesmo em mercados voláteis." data-en="Backup accounts, alternative pixels, and full redundancy. Your campaigns never stop — even in volatile markets.">
-                  Contas backup, pixels alternativos e redundância total. Suas campanhas nunca param — mesmo em mercados voláteis.
-                </p>
-              </div>
-            </div>
-            <div class="why-item fade-up delay-4">
-              <span class="why-num">04</span>
-              <div class="why-content">
-                <h4 data-pt="Foco no Mercado Internacional" data-en="International Market Focus">Foco no Mercado Internacional</h4>
-                <p data-pt="Operamos no mercado americano e europeu com profundo conhecimento de compliance, plataformas e comportamento do consumidor." data-en="We operate in the American and European markets with deep knowledge of compliance, platforms, und consumer behavior.">
-                  Operamos no mercado americano e europeu com profundo conhecimento de compliance, plataformas e comportamento do consumidor.
-                </p>
-              </div>
+        <div class="contact-detail">
+          <div class="contact-item">
+            <div class="contact-item-icon">✉</div>
+            <div>
+              <div class="contact-item-title" data-pt="E-mail" data-en="Email">E-mail</div>
+              <div class="contact-item-text">contato@axiomgroups.org</div>
             </div>
           </div>
-        </div>
-
-        <div class="why-visual fade-up delay-1">
-          <div class="why-card-top">
-            <div class="vertical-tag" data-pt="PERFORMANCE EM TEMPO REAL" data-en="REAL-TIME PERFORMANCE">PERFORMANCE EM TEMPO REAL</div>
-            <div class="why-card-metric">$127K</div>
-            <div class="why-card-metric-label" data-pt="faturado nesta semana" data-en="revenue this week">faturado nesta semana</div>
-          </div>
-          <div class="why-card-bottom">
-            <div class="mini-card">
-              <div class="mini-card-num">4.2x</div>
-              <div class="mini-card-label">ROAS</div>
+          <div class="contact-item">
+            <div class="contact-item-icon">⚡</div>
+            <div>
+              <div class="contact-item-title" data-pt="Resposta" data-en="Response">Resposta</div>
+              <div class="contact-item-text" data-pt="Em até 24 horas úteis" data-en="Within 24 business hours">Em até 24 horas úteis</div>
             </div>
-            <div class="mini-card">
-              <div class="mini-card-num">-18%</div>
-              <div class="mini-card-label">CPA</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🌎</div>
+            <div>
+              <div class="contact-item-title" data-pt="Atendimento" data-en="Coverage">Atendimento</div>
+              <div class="contact-item-text" data-pt="Brasil e mercados internacionais" data-en="Brazil and international markets">Brasil e mercados internacionais</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════
-       CONTACT
-  ════════════════════════════════════ -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info fade-up">
-          <span class="section-label" data-pt="CONTATO" data-en="CONTACT">CONTATO</span>
-          <h2 class="section-title" id="contact-title">
-            Vamos<br /><span class="accent">conversar?</span>
-          </h2>
-          <p class="section-desc fade-up delay-1" id="contact-desc">
-            Entre em contato e descubra como a Axiom Group pode transformar seus resultados em mídia paga.
-          </p>
-
-          <div class="contact-details fade-up delay-2">
-            <div class="contact-item">
-              <div class="contact-item-icon">✉️</div>
-              <div>
-                <div class="contact-item-label" data-pt="EMAIL" data-en="EMAIL">EMAIL</div>
-                <div class="contact-item-value">contato@axiomgroups.org</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">🌐</div>
-              <div>
-                <div class="contact-item-label" data-pt="SEDE" data-en="HEADQUARTERS">SEDE</div>
-                <div class="contact-item-value" data-pt="Brasil · Operações Globais" data-en="Brazil · Global Operations">Brasil · Operações Globais</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">💬</div>
-              <div>
-                <div class="contact-item-label" data-pt="RESPOSTA" data-en="RESPONSE TIME">RESPOSTA</div>
-                <div class="contact-item-value" data-pt="Em até 24 horas úteis" data-en="Within 24 business hours">Em até 24 horas úteis</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form fade-up delay-1">
-          <form id="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" data-pt="NOME" data-en="NAME">NOME</label>
-                <input type="text" class="form-input" id="f-name" required placeholder="Fernando" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" data-pt="EMAIL" data-en="EMAIL">EMAIL</label>
-                <input type="email" class="form-input" id="f-email" required placeholder="seu@email.com" />
-              </div>
+      <div class="fade-up">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-pt="Nome" data-en="Name">Nome</label>
+              <input type="text" class="form-input" required
+                     data-pt-placeholder="Seu nome completo" data-en-placeholder="Your full name"
+                     placeholder="Seu nome completo">
             </div>
             <div class="form-group">
-              <label class="form-label" id="f-subject-label" data-pt="ASSUNTO" data-en="SUBJECT">ASSUNTO</label>
-              <select class="form-select" id="f-subject">
-                <option value="" data-pt="Selecione um assunto" data-en="Select a subject" disabled selected>Selecione um assunto</option>
-                <option value="media-buying" data-pt="Media Buying / Tráfego Pago" data-en="Media Buying / Paid Traffic">Media Buying / Tráfego Pago</option>
-                <option value="criatives" data-pt="Criativos & VSLs" data-en="Creatives & VSLs">Criativos & VSLs</option>
-                <option value="affiliate" data-pt="Programa de Afiliados" data-en="Affiliate Program">Programa de Afiliados</option>
-                <option value="partnership" data-pt="Parceria Comercial" data-en="Business Partnership">Parceria Comercial</option>
-                <option value="other" data-pt="Outro" data-en="Other">Outro</option>
+              <label class="form-label" data-pt="E-mail" data-en="Email">E-mail</label>
+              <input type="email" class="form-input" required placeholder="seu@email.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">WhatsApp</label>
+              <input type="tel" class="form-input"
+                     data-pt-placeholder="+55 (00) 00000-0000" data-en-placeholder="+1 (000) 000-0000"
+                     placeholder="+55 (00) 00000-0000">
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-pt="Faturamento mensal" data-en="Monthly revenue">Faturamento mensal</label>
+              <select class="form-input form-select">
+                <option value="" disabled selected data-pt="Selecione" data-en="Select">Selecione</option>
+                <option data-pt="Abaixo de R$50k" data-en="Below $10k">Abaixo de R$50k</option>
+                <option data-pt="R$50k — R$200k" data-en="$10k — $50k">R$50k — R$200k</option>
+                <option data-pt="R$200k — R$500k" data-en="$50k — $150k">R$200k — R$500k</option>
+                <option data-pt="Acima de R$500k" data-en="Above $150k">Acima de R$500k</option>
               </select>
             </div>
-            <div class="form-group">
-              <label class="form-label" data-pt="MENSAGEM" data-en="MESSAGE">MENSAGEM</label>
-              <textarea class="form-textarea" id="f-message" required id="f-mensagem" placeholder="..." rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn-submit" id="f-submit" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</button>
-          </form>
-          <div class="form-success" id="form-success">
-            <div id="form-success-msg" data-pt="✅ Mensagem enviada! Retornaremos em breve." data-en="✅ Message sent! We'll get back to you shortly.">
-              ✅ Mensagem enviada! Retornaremos em breve.
-            </div>
           </div>
-        </div>
+          <div class="form-group">
+            <label class="form-label" data-pt="Mensagem" data-en="Message">Mensagem</label>
+            <textarea class="form-textarea"
+                      data-pt-placeholder="Conte brevemente sobre seu negócio e objetivo..."
+                      data-en-placeholder="Tell us briefly about your business and goals..."
+                      placeholder="Conte brevemente sobre seu negócio e objetivo..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span data-pt="Quero falar com um especialista →" data-en="Talk to a specialist →">Quero falar com um especialista →</span>
+          </button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════
-       FOOTER
-  ════════════════════════════════════ -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="#" class="nav-logo" style="margin-bottom:16px">
-            <img src="assets/logo.png" alt="Axiom Group" class="logo-img" style="height:48px"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="logo-mark" style="display:none">A</div>
-          </a>
-          <p class="footer-tagline" id="footer-tagline">
-            Especialistas em media buying e tráfego pago para o mercado internacional. Escalamos resultados com precisão e dados.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a href="#" class="social-link" aria-label="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-          </div>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="Axiom Group"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg class="logo-fallback" viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="ft-lg" x1="20" y1="0" x2="20" y2="46" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#DCEAFF"/><stop offset="100%" stop-color="#2A60C8"/>
+            </linearGradient></defs>
+            <path d="M20 2 L38 38 L28 38 L20 16 L12 38 L2 38 Z" fill="url(#ft-lg)"/>
+            <path d="M2 38 L8 46 L16 38 Z" fill="#4A80D4" opacity=".9"/>
+            <path d="M38 38 L32 46 L24 38 Z" fill="#2A5CB8" opacity=".9"/>
+          </svg>
+          <span class="chrome-text">AXIOM GROUP</span>
         </div>
-
-        <div class="footer-col">
-          <h5 data-pt="EMPRESA" data-en="COMPANY">EMPRESA</h5>
-          <ul>
-            <li><a href="#about" data-pt="Sobre Nós" data-en="About Us">Sobre Nós</a></li>
-            <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
-            <li><a href="#numbers" data-pt="Resultados" data-en="Results">Resultados</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5 data-pt="CONTATO" data-en="CONTACT">CONTATO</h5>
-          <ul>
-            <li><a href="mailto:contato@axiomgroups.org">contato@axiomgroups.org</a></li>
-            <li><a href="#contact" data-pt="Formulário de Contato" data-en="Contact Form">Formulário de Contato</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">
-          © 2025 <span>Axiom Group</span>. <span id="footer-rights" data-pt="Todos os direitos reservados." data-en="All rights reserved.">Todos os direitos reservados.</span>
+        <p class="footer-tagline"
+           data-pt="Transformando investimento em resultados desde 2020. Built Different."
+           data-en="Turning investment into results since 2020. Built Different.">
+          Transformando investimento em resultados desde 2020. Built Different.
         </p>
-        <p class="footer-copy">axiomgroups.org</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-pt="Serviços" data-en="Services">Serviços</div>
+        <ul class="footer-links">
+          <li><a href="#services">Meta Ads</a></li>
+          <li><a href="#services">Google Ads</a></li>
+          <li><a href="#services">TikTok Ads</a></li>
+          <li><a href="#services" data-pt="Criativos" data-en="Creatives">Criativos</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-pt="Empresa" data-en="Company">Empresa</div>
+        <ul class="footer-links">
+          <li><a href="#why" data-pt="Por que a Axiom" data-en="Why Axiom">Por que a Axiom</a></li>
+          <li><a href="#process" data-pt="Processo" data-en="Process">Processo</a></li>
+          <li><a href="#stats" data-pt="Resultados" data-en="Results">Resultados</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-pt="Contato" data-en="Contact">Contato</div>
+        <ul class="footer-links">
+          <li><a href="#contact" data-pt="Falar com especialista" data-en="Talk to specialist">Falar com especialista</a></li>
+          <li><a href="mailto:contato@axiomgroups.org">contato@axiomgroups.org</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <span data-pt="© 2025 Axiom Group. Todos os direitos reservados." data-en="© 2025 Axiom Group. All rights reserved.">© 2025 Axiom Group. Todos os direitos reservados.</span>
+      <span class="chrome-text" style="font-size:11px;font-weight:600;letter-spacing:.14em">BUILT DIFFERENT</span>
+    </div>
+  </div>
+</footer>
 
-  <!-- ═══════════════════════════════════
-       JAVASCRIPT
-  ════════════════════════════════════ -->
-  <script>
-    // ─── STATE ───────────────────────────
-    let currentLang = 'pt';
+<script>
+// ── LANGUAGE ──
+let lang = 'pt';
 
-    // ─── TRANSLATIONS ────────────────────
-    const t = {
-      pt: {
-        heroBadge: 'Especialistas em Media Buying Global',
-        heroL1: 'Dominamos',
-        heroL2: 'o tráfego.',
-        heroL3: 'Escalamos resultados.',
-        heroSub: 'A Axiom Group é uma agência brasileira especializada em compra de mídia e tráfego pago para o mercado internacional. Transformamos investimento em resultado com precisão, dados e criatividade.',
-        heroCta1: 'Fale com a Axiom',
-        heroCta2: 'Nossos Serviços',
-        heroScroll: 'SCROLL',
-        aboutTitle: 'Prazer,\nAxiom Group.',
-        aboutDesc: 'Somos uma agência brasileira especializada em media buying e tráfego pago para o mercado internacional. Com foco total em performance, gerenciamos campanhas de alto volume em YouTube Ads, Native Ads e outras plataformas globais.',
-        aboutQuote: '"Todo investimento em mídia deve gerar resultado mensurável. Esse é o único padrão que aceitamos."',
-        servicesTitle: 'Nossos\nServiços',
-        servicesDesc: 'Cada solução é desenhada para maximizar seu ROI no mercado global.',
-        numbersTitle: 'Resultados que\nfalam por si.',
-        whyTitle: 'O que nos\ndiferencia.',
-        contactTitle: 'Vamos\nconversar?',
-        contactDesc: 'Entre em contato e descubra como a Axiom Group pode transformar seus resultados em mídia paga.',
-        footerTagline: 'Especialistas em media buying e tráfego pago para o mercado internacional. Escalamos resultados com precisão e dados.',
-        navCta: 'Fale Conosco',
-        marqueeItems: ['MEDIA BUYING', 'YOUTUBE ADS', 'NATIVE ADS', 'TRÁFEGO PAGO', 'PERFORMANCE', 'VSL', 'FUNIL DE VENDAS', 'CRIATIVOS', 'ROAS', 'AXIOM GROUP'],
-      },
-      en: {
-        heroBadge: 'Global Media Buying Specialists',
-        heroL1: 'We dominate',
-        heroL2: 'the traffic.',
-        heroL3: 'We scale results.',
-        heroSub: 'Axiom Group is a Brazilian agency specialized in media buying and paid traffic for the international market. We turn investment into results with precision, data, and creativity.',
-        heroCta1: 'Talk to Axiom',
-        heroCta2: 'Our Services',
-        heroScroll: 'SCROLL',
-        aboutTitle: 'Nice to meet you,\nAxiom Group.',
-        aboutDesc: 'We are a Brazilian agency specialized in media buying and paid traffic for the international market. With a total focus on performance, we manage high-volume campaigns on YouTube Ads, Native Ads, and other global platforms.',
-        aboutQuote: '"Every media investment must generate measurable results. That is the only standard we accept."',
-        servicesTitle: 'Our\nServices',
-        servicesDesc: 'Every solution is designed to maximize your ROI in the global market.',
-        numbersTitle: 'Results that\nspeak for themselves.',
-        whyTitle: 'What sets us\napart.',
-        contactTitle: "Let's\ntalk?",
-        contactDesc: 'Get in touch and discover how Axiom Group can transform your paid media results.',
-        footerTagline: 'Media buying and paid traffic specialists for the international market. We scale results with precision and data.',
-        navCta: 'Get in Touch',
-        marqueeItems: ['MEDIA BUYING', 'YOUTUBE ADS', 'NATIVE ADS', 'PAID TRAFFIC', 'PERFORMANCE', 'VSL', 'SALES FUNNEL', 'CREATIVES', 'ROAS', 'AXIOM GROUP'],
-      }
-    };
+async function detectLang(){
+  try{
+    const r = await fetch('https://ipapi.co/json/');
+    const d = await r.json();
+    setLand(d.country_code === 'BR' ? 'pt' : 'en');
+  }catch(e){ setLang('pt'); }
+}
 
-    // ─── BUILD MARQUEE ────────────────────
-    function buildMarquee(lang) {
-      const items = t[lang].marqueeItems;
-      const track = document.getElementById('marquee-track');
-      let html = '';
-      // double for seamless loop
-      for (let i = 0; i < 2; i++) {
-        items.forEach(item => {
-          html += `<span class="marquee-item"><span class="dot"></span>${item}</span>`;
-        });
-      }
-      track.innerHTML = html;
-    }
+function setLang(l){
+  lang = l;
+  document.getElementById('langToggle').textContent = l === 'pt' ? 'EN' : 'PT';
+  document.querySelectorAll('[data-pt]').forEach(el=>{
+    el.textContent = el.getAttribute('data-'+l);
+  });
+  document.querySelectorAll('[data-pt-placeholder]').forEach(el=>{
+    el.placeholder = el.getAttribute('data-'+l+'-placeholder') || el.placeholder;
+  });
+  buildMarquee();
+}
 
-    // ─── SET LANGUAGE ────────────────────
-    function setLang(lang) {
-      currentLang = lang;
-      document.documentElement.lang = lang;
+function toggleLang(){ setLang(lang === 'pt' ? 'en' : 'pt'); }
 
-      // Update buttons
-      ['btn-pt','btn-en'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.toggle('active', id === `btn-${lang}`);
-      });
-      ['btn-pt-m','btn-en-m'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.toggle('active', id === `btn-${lang}-m`);
-      });
+// ── MARQUEE ──
+const marqueeItems = {
+  pt:['Media Buying','Tráfego Pago','Meta Ads','Google Ads','TikTok Ads','VSLs de Alta Conversão','Criativos Estratégicos','Escala com ROI','Analytics Avançado','Performance Marketing','Built Different'],
+  en:['Media Buying','Paid Traffic','Meta Ads','Google Ads','TikTok Ads','High-Converting VSLs','Strategic Creatives','ROI-Driven Scale','Advanced Analytics','Performance Marketing','Built Different']
+};
 
-      const tx = t[lang];
-
-      // Hero
-      const badge = document.querySelector('.hero-badge');
-      if (badge) badge.textContent = tx.heroBadge;
-      setText('hero-line1', tx.heroL1);
-      setText('hero-line3', tx.heroL3);
-      const hl = document.getElementById('hero-line2');
-      if (hl) hl.textContent = tx.heroL2;
-      setText('hero-sub', tx.heroSub);
-      setLink('hero-cta1', tx.heroCta1);
-      setLink('hero-cta2', tx.heroCta2);
-      const hs = document.getElementById('hero-scroll');
-      if (hs) hs.childNodes[0].textContent = tx.heroScroll;
-
-      // About
-      const at = document.getElementById('about-title');
-      if (at) { at.innerHTML = formatTitle(tx.aboutTitle, true); }
-      setText('about-desc', tx.aboutDesc);
-      const aq = document.getElementById('about-quote');
-      if (aq) aq.textContent = tx.aboutQuote;
-
-      // Services
-      const st = document.getElementById('services-title');
-      if (st) { st.innerHTML = formatTitle(tx.servicesTitle, true); }
-      setText('services-desc', tx.servicesDesc);
-
-      // Numbers
-      const nt = document.getElementById('numbers-title');
-      if (nt) { nt.innerHTML = formatTitle(tx.numbersTitle, true); }
-
-      // Why
-      const wt = document.getElementById('why-title');
-      if (wt) { wt.innerHTML = formatTitle(tx.whyTitle, true); }
-
-      // Contact
-      const ct = document.getElementById('contact-title');
-      if (ct) { ct.innerHTML = formatTitle(tx.contactTitle, true); }
-      setText('contact-desc', tx.contactDesc);
-
-      // Footer
-      setText('footer-tagline', tx.footerTagline);
-
-      // Nav CTA
-      const nc = document.querySelector('.btn-nav');
-      if (nc) nc.textContent = tx.navCta;
-
-      // All data-pt / data-en elements
-      document.querySelectorAll(`[data-${lang}]`).forEach(el => {
-        // Skip elements we've already handled individually
-        if (el.id && ['hero-sub','about-desc','services-desc','contact-desc','footer-tagline'].includes(el.id)) return;
-        const val = el.getAttribute(`data-${lang}`);
-        if (val) el.textContent = val;
-      });
-
-      // Marquee
-      buildMarquee(lang);
-    }
-
-    function setText(id, text) {
-      const el = document.getElementById(id);
-      if (el) el.textContent = text;
-    }
-
-    function setLink(id, text) {
-      const el = document.getElementById(id);
-      if (el) {
-        // preserve the arrow svg
-        const svg = el.querySelector('svg');
-        el.textContent = text + ' ';
-        if (svg) el.appendChild(svg);
-      }
-    }
-
-    function formatTitle(text, accent) {
-      const lines = text.split('\n');
-      return lines.map((line, i) => {
-        if (i === lines.length - 1 && accent) {
-          return `<span class="accent">${line}</span>`;
-        }
-        return line + (i < lines.length - 1 ? '<br />' : '');
-      }).join('');
-    }
-
-    // ─── DETECT IP COUNTRY ────────────────
-    async function detectLanguage() {
-      try {
-        const r = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) });
-        const data = await r.json();
-        const lang = data.country_code === 'BR' ? 'pt' : 'en';
-        setLang(lang);
-      } catch {
-        // fallback: check browser language
-        const bl = navigator.language || navigator.userLanguage || '';
-        setLang(bl.toLowerCase().startsWith('pt') ? 'pt' : 'en');
-      }
-    }
-
-    // ─── NAVBAR SCROLL ────────────────────
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+function buildMarquee(){
+  const track = document.getElementById('marqueeTrack');
+  if(!track) return;
+  let html = '';
+  for(let rep=0;rep<2;rep++){
+    marqueeItems[lang].forEach(item=>{
+      html += `<span class="marquee-item"><span class="marquee-dot"></span>${item}</span>`;
     });
+  }
+  track.innerHTML = html;
+}
 
-    // ─── MOBILE MENU ─────────────────────
-    document.getElementById('hamburger')?.addEventListener('click', () => {
-      document.getElementById('mobile-menu')?.classList.add('open');
-    });
-    document.getElementById('close-menu')?.addEventListener('click', closeMobile);
-    function closeMobile() {
-      document.getElementById('mobile-menu')?.classList.remove('open');
-    }
+// ── NAV SCROLL ──
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  navEl.classList.toggle('scrolled', window.scrollY > 50);
+},{passive:true});
 
-    // ─── SCROLL ANIMATIONS ───────────────
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); }
+// ── SCROLL ANIMATIONS ──
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Stagger cards
+const cardObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const cards = e.target.querySelectorAll('.stat-card,.service-card,.why-card,.step');
+      cards.forEach((c,i)=>{
+        c.classList.add('fade-up');
+        setTimeout(()=>c.classList.add('visible'), i * 90);
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // ─── CONTACT FORM ────────────────────
-    function handleSubmit(e) {
-      e.preventDefault();
-      const form = document.getElementById('contact-form');
-      const success = document.getElementById('form-success');
-      if (form && success) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      }
     }
+  });
+},{threshold:0.05});
 
-    // ─── INIT ─────────────────────────────
-    buildMarquee('pt');   // initial render
-    detectLanguage();     // async: will update lang if needed
-  </script>
+document.querySelectorAll('.stats-grid,.services-grid,.why-right,.process-steps').forEach(el=>cardObs.observe(el));
 
+// ── FORM ──
+function handleSubmit(e){
+  e.preventDefault();
+  const span = e.target.querySelector('.form-submit span');
+  const orig = span.textContent;
+  span.textContent = lang === 'pt' ? 'Enviando...' : 'Sending...';
+  setTimeout(()=>{
+    span.textContent = lang === 'pt' ? '✓ Mensagem enviada!' : '✓ Message sent!';
+    setTimeout(()=>{ span.textContent = orig; e.target.reset(); }, 3000);
+  }, 1200);
+}
+
+// ── SMOOTH LINKS ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+// ── INIT ──
+detectLang();
+buildMarquee();
+</script>
 </body>
 </html>
