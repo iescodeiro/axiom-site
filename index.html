@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO PT -->
+  <title>Axiom Group — Especialistas em Media Buying Global</title>
+  <meta name="description" content="A Axiom Group é especialista em compra de mídia e tráfego pago no mercado internacional. Escalamos resultados com precisão, dados e criatividade." />
+
+  <!-- SEO EN -->
+  <meta property="og:title" content="Axiom Group — Global Media Buying Specialists" />
+  <meta property="og:description" content="Axiom Group specializes in media buying and paid traffic for the international market. We scale results with precision, data, and creativity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://axiomgroups.org/" />
+  <meta name="theme-color" content="#04060A" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #030508;
+      --bg2:       #080C14;
+      --bg3:       #0D1220;
+      --blue:      #3B7FE8;
+      --blue-light:#6BA3F5;
+      --silver:    #C8D8F0;
+      --white:     #FFFFFF;
+      --gray:      #7A8BA8;
+      --gray2:     #404D64;
+      --border:    rgba(59,127,232,0.15);
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* alias so CSS references work */
+      --gold:      var(--blue);
+      --gold-light:var(--blue-light);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(4,6,10,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo img.logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-logo .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #1a3a6e, #3B7FE8);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray);
+      transition: color 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 4px;
+    }
+
+    .lang-toggle button {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--gray);
+      transition: all 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--gold);
+      color: #FFFFFF;
+    }
+
+    /* CTA Button Nav */
+    .btn-nav {
+      background: var(--gold);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-nav:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 28px; font-weight: 700; font-family: var(--font-head); }
+    .mobile-menu .close-btn { position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--gray); }
+
+    /* ─────────────────────────────────────
+       HERO
+    ───────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,127,232,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 80%, rgba(59,127,232,0.04) 0%, transparent 50%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,127,232,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,127,232,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59,127,232,0.1);
+      border: 1px solid rgba(59,127,232,0.25);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--gray2);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 10px;
+      letter-spacing: 0.2px;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(59,127,232,0.25);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 32px;
+      border-radius: 10px;
+      transition: all 0.25s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(59,127,232,0.4);
+      background: rgba(59,127,232,0.06);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray2);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gray2), transparent);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ─────────────────────────────────────
+       MARQUEE
+    ───────────────────────────────────── */
+    .marquee-wrapper {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 18px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 32px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+
+    .marquee-item .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────
+       SECTION HEADERS
+    ───────────────────────────────────── */
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .section-title .accent {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    /* ─────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────── */
+    #about {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text { }
+
+    .about-text .section-desc {
+      margin: 24px 0 48px;
+      max-width: 100%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .stat-card:first-child { border-radius: 12px 0 0 0; }
+    .stat-card:nth-child(2) { border-radius: 0 12px 0 0; }
+    .stat-card:nth-child(3) { border-radius: 0 0 0 12px; }
+    .stat-card:last-child { border-radius: 0 0 12px 0; }
+
+    .stat-card:hover { border-color: rgba(59,127,232,0.4); }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .stat-card:hover::before { opacity: 1; }
+
+    .stat-number {
+      font-family: var(--font-head);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* Visual side */
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card-main {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card-main::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,127,232,0.12) 0%, transparent 70%);
+    }
+
+    .about-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .about-quote {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 32px;
+      letter-spacing: -0.3px;
+    }
+
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .pillar-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(59,127,232,0.1);
+      border: 1px solid rgba(59,127,232,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────── */
+    #services {
+      padding: 120px 0;
+      background: var(--bg2);
+      position: relative;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.3;
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .service-card:first-child { border-radius: 12px 0 0 12px; }
+    .service-card:last-child { border-radius: 0 12px 12px 0; }
+
+    .service-card:hover {
+      background: var(--bg3);
+      border-color: rgba(59,127,232,0.3);
+      transform: translateY(-4px);
+      z-index: 1;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .service-number {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-family: var(--font-head);
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .service-title {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────
+       NUMBERS / RESULTS
+    ───────────────────────────────────── */
+    #numbers {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #numbers::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(59,127,232,0.05) 0%, transparent 60%);
+    }
+
+    .numbers-title {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .numbers-title .section-title {
+      font-size: clamp(36px, 5vw, 68px);
+      margin-bottom: 16px;
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      position: relative;
+    }
+
+    .number-card {
+      text-align: center;
+      padding: 48px 24px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .number-card:first-child { border-radius: 12px 0 0 12px; }
+    .number-card:last-child { border-radius: 0 12px 12px 0; }
+    .number-card:hover { border-color: rgba(59,127,232,0.35); }
+
+    .big-number {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .number-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ─────────────────────────────────────
+       WHY AXIOM
+    ───────────────────────────────────── */
+    #why {
+      padding: 120px 0;
+      background: var(--bg2);
+      position: relative;
+    }
+
+    #why::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.3;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .why-item:first-child { border-radius: 12px 12px 0 0; }
+    .why-item:last-child { border-radius: 0 0 12px 12px; }
+
+    .why-item:hover {
+      border-color: rgba(59,127,232,0.3);
+      background: var(--bg3);
+    }
+
+    .why-num {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .why-content h4 {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .why-content p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* Visual side */
+    .why-visual {
+      display: grid;
+      gap: 16px;
+    }
+
+    .why-card-top {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card-top::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(59,127,232,0.1), transparent);
+    }
+
+    .vertical-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .why-card-metric {
+      font-family: var(--font-head);
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .why-card-metric-label {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .why-card-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .mini-card-num {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .mini-card-label {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* ─────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────── */
+    #contact {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info .section-desc {
+      margin: 24px 0 48px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(59,127,232,0.1);
+      border: 1px solid rgba(59,127,232,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 15px;
+      color: var(--gray);
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238892A4' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-color: rgba(255,255,255,0.04);
+      padding-right: 40px;
+    }
+
+    .form-select option { background: #0F1320; color: var(--white); }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: rgba(59,127,232,0.5);
+      background: rgba(59,127,232,0.04);
+    }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px;
+      border-radius: 10px;
+      transition: all 0.25s;
+      font-family: var(--font-body);
+      cursor: pointer;
+      border: none;
+      margin-top: 4px;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59,127,232,0.25);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      color: var(--gold);
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────── */
+    footer {
+      padding: 60px 0 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .nav-logo {
+      margin-bottom: 16px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 24px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      background: rgba(59,127,232,0.15);
+      border-color: rgba(59,127,232,0.3);
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col a {
+      font-size: 14px;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--gray2);
+    }
+
+    .footer-copy span { color: var(--gold); }
+
+    /* ─────────────────────────────────────
+       SCROLL ANIMATIONS
+    ───────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid,
+      .why-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .about-visual { display: none; }
+
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(2) { border-radius: 0 12px 0 0; }
+      .service-card:nth-child(4) { border-radius: 0 0 12px 0; }
+      .service-card:nth-child(3) { border-radius: 0 0 0 12px; }
+
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .number-card:first-child { border-radius: 12px 0 0 0; }
+      .number-card:nth-child(2) { border-radius: 0 12px 0 0; }
+      .number-card:nth-child(3) { border-radius: 0 0 0 12px; }
+      .number-card:last-child { border-radius: 0 0 12px 0; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .btn-nav { display: none; }
+      .hamburger { display: flex; }
+
+      .services-grid { grid-template-columns: 1fr; gap: 16px; }
+      .service-card { border-radius: 12px !important; }
+
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+
+      .lang-toggle { margin-right: auto; }
+
+      .services-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .numbers-grid { grid-template-columns: 1fr; }
+      .number-card { border-radius: 12px !important; }
+      .why-card-bottom { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="assets/logo.png" alt="Axiom Group" class="logo-img"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="logo-mark" style="display:none">A</div>
+          <span id="nav-logo-text" style="display:none">Axiom Group</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+          <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+          <li><a href="#numbers" data-pt="Resultados" data-en="Results">Resultados</a></li>
+          <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <div class="lang-toggle">
+            <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+            <button id="btn-en" onclick="setLang('en')">EN</button>
+          </div>
+          <a href="#contact" class="btn-nav" data-pt="Fale Conosco" data-en="Get in Touch">Fale Conosco</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="close-btn" id="close-menu">✕</button>
+    <a href="#about" class="mobile-link" data-pt="Sobre" data-en="About" onclick="closeMobile()">Sobre</a>
+    <a href="#services" class="mobile-link" data-pt="Serviços" data-en="Services" onclick="closeMobile()">Serviços</a>
+    <a href="#numbers" class="mobile-link" data-pt="Resultados" data-en="Results" onclick="closeMobile()">Resultados</a>
+    <a href="#contact" class="mobile-link" data-pt="Contato" data-en="Contact" onclick="closeMobile()">Contato</a>
+    <div class="lang-toggle" style="margin-top:8px">
+      <button id="btn-pt-m" class="active" onclick="setLang('pt'); closeMobile()">PT</button>
+      <button id="btn-en-m" onclick="setLang('en'); closeMobile()">EN</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge" data-pt="Especialistas em Media Buying Global" data-en="Global Media Buying Specialists">
+          Especialistas em Media Buying Global
+        </div>
+
+        <h1 class="hero-title">
+          <span id="hero-line1">Dominamos</span><br />
+          <span id="hero-line2" class="highlight">o tráfego.</span><br />
+          <span id="hero-line3">Escalamos resultados.</span>
+        </h1>
+
+        <p class="hero-tagline">— BUILT DIFFERENT —</p>
+
+        <p class="hero-sub" id="hero-sub">
+          A Axiom Group é uma agência brasileira especializada em compra de mídia e tráfego pago para o mercado internacional. Transformamos investimento em resultado com precisão, dados e criatividade.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary" id="hero-cta1">
+            Fale com a Axiom
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#services" class="btn-ghost" id="hero-cta2">
+            Nossos Serviços
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" id="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       MARQUEE
+  ════════════════════════════════════ -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track" id="marquee-track">
+      <!-- items injected by JS based on language -->
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       ABOUT
+  ════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <span class="section-label" data-pt="SOBRE NÓS" data-en="ABOUT US">SOBRE NÓS</span>
+          <h2 class="section-title" id="about-title">
+            Prazer,<br /><span class="accent">Axiom Group.</span>
+          </h2>
+          <p class="section-desc fade-up delay-1" id="about-desc">
+            Somos uma agência brasileira especializada em media buying e tráfego pago para o mercado internacional. Com foco total em performance, gerenciamos campanhas de alto volume em YouTube Ads, Native Ads e outras plataformas globais.
+          </p>
+
+          <div class="stats-grid fade-up delay-2">
+            <div class="stat-card">
+              <div class="stat-number">$50M+</div>
+              <div class="stat-label" data-pt="Investidos em tráfego pago" data-en="Invested in paid traffic">Investidos em tráfego pago</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">10+</div>
+              <div class="stat-label" data-pt="Países de atuação" data-en="Countries of operation">Países de atuação</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">8+</div>
+              <div class="stat-label" data-pt="Anos de mercado" data-en="Years in the market">Anos de mercado</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100+</div>
+              <div class="stat-label" data-pt="Campanhas lançadas" data-en="Campaigns launched">Campanhas lançadas</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual fade-up delay-2">
+          <div class="about-card-main">
+            <div class="about-tag" data-pt="NOSSA FILOSOFIA" data-en="OUR PHILOSOPHY">NOSSA FILOSOFIA</div>
+            <p class="about-quote" id="about-quote">
+              "Todo investimento em mídia deve gerar resultado mensurável. Esse é o único padrão que aceitamos."
+            </p>
+            <div class="about-pillars">
+              <div class="pillar">
+                <div class="pillar-icon">📊</div>
+                <span data-pt="Decisões orientadas por dados" data-en="Data-driven decisions">Decisões orientadas por dados</span>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">🎯</div>
+                <span data-pt="Criatividade de alta performance" data-en="High-performance creatives">Criatividade de alta performance</span>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">⚡</div>
+                <span data-pt="Execução ágil e escalável" data-en="Agile and scalable execution">Execução ágil e escalável</span>
+              </div>
+              <div class="pillar">
+                <div class="pillar-icon">🌍</div>
+                <span data-pt="Operações globais" data-en="Global operations">Operações globais</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       SERVICES
+  ════════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <span class="section-label" data-pt="O QUE FAZEMOS" data-en="WHAT WE DO">O QUE FAZEMOS</span>
+          <h2 class="section-title fade-up" id="services-title">
+            Nossos<br /><span class="accent">Serviços</span>
+          </h2>
+        </div>
+        <p class="section-desc fade-up delay-1" style="max-width:360px" id="services-desc">
+          Cada solução é desenhada para maximizar seu ROI no mercado global.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card fade-up">
+          <span class="service-number">01</span>
+          <span class="service-icon">📺</span>
+          <h3 class="service-title" data-pt="Media Buying" data-en="Media Buying">Media Buying</h3>
+          <p class="service-desc" data-pt="Compra de mídia estratégica em YouTube Ads, Native Ads e plataformas de tráfego global. Gerenciamos orçamentos de alto volume com foco em CPA e ROAS." data-en="Strategic media buying on YouTube Ads, Native Ads, and global traffic platforms. We manage high-volume budgets focused on CPA and ROAS.">
+            Compra de mídia estratégica em YouTube Ads, Native Ads e plataformas de tráfego global. Gerenciamos orçamentos de alto volume com foco em CPA e ROAS.
+          </p>
+        </div>
+
+        <div class="service-card fade-up delay-1">
+          <span class="service-number">02</span>
+          <span class="service-icon">🎨</span>
+          <h3 class="service-title" data-pt="Criativos & VSLs" data-en="Creatives & VSLs">Criativos & VSLs</h3>
+          <p class="service-desc" data-pt="Produção de anúncios de alta performance — vídeos, banners e VSLs que convertem. Do conceito à entrega, com testes contínuos." data-en="Production of high-performance ads — videos, banners, and VSLs that convert. From concept to delivery, with continuous testing.">
+            Produção de anúncios de alta performance — vídeos, banners e VSLs que convertem. Do conceito à entrega, com testes contínuos.
+          </p>
+        </div>
+
+        <div class="service-card fade-up delay-2">
+          <span class="service-number">03</span>
+          <span class="service-icon">🔬</span>
+          <h3 class="service-title" data-pt="Testes & Otimização" data-en="Testing & Optimization">Testes & Otimização</h3>
+          <p class="service-desc" data-pt="Metodologia rigorosa de A/B testing para criativos, audiências e ofertas. Otimização contínua para maximizar performance." data-en="Rigorous A/B testing methodology for creatives, audiences, and offers. Continuous optimization to maximize performance.">
+            Metodologia rigorosa de A/B testing para criativos, audiências e ofertas. Otimização contínua para maximizar performance.
+          </p>
+        </div>
+
+        <div class="service-card fade-up delay-1">
+          <span class="service-number">04</span>
+          <span class="service-icon">🚀</span>
+          <h3 class="service-title" data-pt="Funil de Vendas" data-en="Sales Funnel">Funil de Vendas</h3>
+          <p class="service-desc" data-pt="Criação e otimização de funis de alta conversão — do clique até a compra. Upsells, order bumps e backend estruturado." data-en="Creation and optimization of high-conversion funnels — from click to purchase. Upsells, order bumps, and structured backend.">
+            Criação e otimização de funis de alta conversão — do clique até a compra. Upsells, order bumps e backend estruturado.
+          </p>
+        </div>
+
+        <div class="service-card fade-up delay-2">
+          <span class="service-number">05</span>
+          <span class="service-icon">📈</span>
+          <h3 class="service-title" data-pt="Analytics & BI" data-en="Analytics & BI">Analytics & BI</h3>
+          <p class="service-desc" data-pt="Dashboards em tempo real com KPIs que importam. Decisões baseadas em dados precisos, não em intuição." data-en="Real-time dashboards with the KPIs that matter. Decisions based on precise data, not intuition.">
+            Dashboards em tempo real com KPIs que importam. Decisões baseadas em dados precisos, não em intuição.
+          </p>
+        </div>
+
+        <div class="service-card fade-up delay-3">
+          <span class="service-number">06</span>
+          <span class="service-icon">🤝</span>
+          <h3 class="service-title" data-pt="Programa de Afiliados" data-en="Affiliate Program">Programa de Afiliados</h3>
+          <p class="service-desc" data-pt="Parcerias estratégicas com afiliados de alta performance. Comissões competitivas, suporte dedicado e materiais exclusivos." data-en="Strategic partnerships with high-performance affiliates. Competitive commissions, dedicated support, and exclusive materials.">
+            Parcerias estratégicas com afiliados de alta performance. Comissões competitivas, suporte dedicado e materiais exclusivos.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       NUMBERS
+  ════════════════════════════════════ -->
+  <section id="numbers">
+    <div class="container">
+      <div class="numbers-title fade-up">
+        <span class="section-label" data-pt="NOSSOS NÚMEROS" data-en="OUR NUMBERS">NOSSOS NÚMEROS</span>
+        <h2 class="section-title" id="numbers-title">
+          Resultados que<br /><span class="accent">falam por si.</span>
+        </h2>
+      </div>
+
+      <div class="numbers-grid">
+        <div class="number-card fade-up">
+          <div class="big-number">$50M+</div>
+          <div class="number-desc" data-pt="em tráfego pago gerenciado" data-en="in managed paid traffic">em tráfego pago gerenciado</div>
+        </div>
+        <div class="number-card fade-up delay-1">
+          <div class="big-number">300%</div>
+          <div class="number-desc" data-pt="de ROAS médio nas campanhas" data-en="average ROAS on campaigns">de ROAS médio nas campanhas</div>
+        </div>
+        <div class="number-card fade-up delay-2">
+          <div class="big-number">10+</div>
+          <div class="number-desc" data-pt="países com operações ativas" data-en="countries with active operations">países com operações ativas</div>
+        </div>
+        <div class="number-card fade-up delay-3">
+          <div class="big-number">100+</div>
+          <div class="number-desc" data-pt="campanhas vencedoras lançadas" data-en="winning campaigns launched">campanhas vencedoras lançadas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       WHY AXIOM
+  ════════════════════════════════════ -->
+  <section id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <span class="section-label" data-pt="POR QUE A AXIOM" data-en="WHY AXIOM">POR QUE A AXIOM</span>
+          <h2 class="section-title fade-up" id="why-title">
+            O que nos<br /><span class="accent">diferencia.</span>
+          </h2>
+
+          <div class="why-list">
+            <div class="why-item fade-up delay-1">
+              <span class="why-num">01</span>
+              <div class="why-content">
+                <h4 data-pt="Escala com Consistência" data-en="Scale with Consistency">Escala com Consistência</h4>
+                <p data-pt="Não apenas lançamos campanhas — construímos sistemas que escalam de forma sustentável, mantendo CPA estável no crescimento." data-en="We don't just launch campaigns — we build systems that scale sustainably, keeping CPA stable as you grow.">
+                  Não apenas lançamos campanhas — construímos sistemas que escalam de forma sustentável, mantendo CPA estável no crescimento.
+                </p>
+              </div>
+            </div>
+            <div class="why-item fade-up delay-2">
+              <span class="why-num">02</span>
+              <div class="why-content">
+                <h4 data-pt="Criativos Disruptivos" data-en="Disruptive Creatives">Criativos Disruptivos</h4>
+                <p data-pt="Nossa equipe criativa produz VSLs e anúncios que quebram padrões e geram CTR e conversões acima da média do mercado." data-en="Our creative team produces VSLs and ads that break patterns and generate above-market CTR and conversion rates.">
+                  Nossa equipe criativa produz VSLs e anúncios que quebram padrões e geram CTR e conversões acima da média do mercado.
+                </p>
+              </div>
+            </div>
+            <div class="why-item fade-up delay-3">
+              <span class="why-num">03</span>
+              <div class="why-content">
+                <h4 data-pt="Estrutura de Contingência" data-en="Contingency Structure">Estrutura de Contingência</h4>
+                <p data-pt="Contas backup, pixels alternativos e redundância total. Suas campanhas nunca param — mesmo em mercados voláteis." data-en="Backup accounts, alternative pixels, and full redundancy. Your campaigns never stop — even in volatile markets.">
+                  Contas backup, pixels alternativos e redundância total. Suas campanhas nunca param — mesmo em mercados voláteis.
+                </p>
+              </div>
+            </div>
+            <div class="why-item fade-up delay-4">
+              <span class="why-num">04</span>
+              <div class="why-content">
+                <h4 data-pt="Foco no Mercado Internacional" data-en="International Market Focus">Foco no Mercado Internacional</h4>
+                <p data-pt="Operamos no mercado americano e europeu com profundo conhecimento de compliance, plataformas e comportamento do consumidor." data-en="We operate in the American and European markets with deep knowledge of compliance, platforms, und consumer behavior.">
+                  Operamos no mercado americano e europeu com profundo conhecimento de compliance, plataformas e comportamento do consumidor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-visual fade-up delay-1">
+          <div class="why-card-top">
+            <div class="vertical-tag" data-pt="PERFORMANCE EM TEMPO REAL" data-en="REAL-TIME PERFORMANCE">PERFORMANCE EM TEMPO REAL</div>
+            <div class="why-card-metric">$127K</div>
+            <div class="why-card-metric-label" data-pt="faturado nesta semana" data-en="revenue this week">faturado nesta semana</div>
+          </div>
+          <div class="why-card-bottom">
+            <div class="mini-card">
+              <div class="mini-card-num">4.2x</div>
+              <div class="mini-card-label">ROAS</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-num">-18%</div>
+              <div class="mini-card-label">CPA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CONTACT
+  ════════════════════════════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info fade-up">
+          <span class="section-label" data-pt="CONTATO" data-en="CONTACT">CONTATO</span>
+          <h2 class="section-title" id="contact-title">
+            Vamos<br /><span class="accent">conversar?</span>
+          </h2>
+          <p class="section-desc fade-up delay-1" id="contact-desc">
+            Entre em contato e descubra como a Axiom Group pode transformar seus resultados em mídia paga.
+          </p>
+
+          <div class="contact-details fade-up delay-2">
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div>
+                <div class="contact-item-label" data-pt="EMAIL" data-en="EMAIL">EMAIL</div>
+                <div class="contact-item-value">contato@axiomgroups.org</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🌐</div>
+              <div>
+                <div class="contact-item-label" data-pt="SEDE" data-en="HEADQUARTERS">SEDE</div>
+                <div class="contact-item-value" data-pt="Brasil · Operações Globais" data-en="Brazil · Global Operations">Brasil · Operações Globais</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">💬</div>
+              <div>
+                <div class="contact-item-label" data-pt="RESPOSTA" data-en="RESPONSE TIME">RESPOSTA</div>
+                <div class="contact-item-value" data-pt="Em até 24 horas úteis" data-en="Within 24 business hours">Em até 24 horas úteis</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form fade-up delay-1">
+          <form id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" data-pt="NOME" data-en="NAME">NOME</label>
+                <input type="text" class="form-input" id="f-name" required placeholder="Fernando" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-pt="EMAIL" data-en="EMAIL">EMAIL</label>
+                <input type="email" class="form-input" id="f-email" required placeholder="seu@email.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" id="f-subject-label" data-pt="ASSUNTO" data-en="SUBJECT">ASSUNTO</label>
+              <select class="form-select" id="f-subject">
+                <option value="" data-pt="Selecione um assunto" data-en="Select a subject" disabled selected>Selecione um assunto</option>
+                <option value="media-buying" data-pt="Media Buying / Tráfego Pago" data-en="Media Buying / Paid Traffic">Media Buying / Tráfego Pago</option>
+                <option value="criatives" data-pt="Criativos & VSLs" data-en="Creatives & VSLs">Criativos & VSLs</option>
+                <option value="affiliate" data-pt="Programa de Afiliados" data-en="Affiliate Program">Programa de Afiliados</option>
+                <option value="partnership" data-pt="Parceria Comercial" data-en="Business Partnership">Parceria Comercial</option>
+                <option value="other" data-pt="Outro" data-en="Other">Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-pt="MENSAGEM" data-en="MESSAGE">MENSAGEM</label>
+              <textarea class="form-textarea" id="f-message" required id="f-mensagem" placeholder="..." rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="f-submit" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</button>
+          </form>
+          <div class="form-success" id="form-success">
+            <div id="form-success-msg" data-pt="✅ Mensagem enviada! Retornaremos em breve." data-en="✅ Message sent! We'll get back to you shortly.">
+              ✅ Mensagem enviada! Retornaremos em breve.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="margin-bottom:16px">
+            <img src="assets/logo.png" alt="Axiom Group" class="logo-img" style="height:48px"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="logo-mark" style="display:none">A</div>
+          </a>
+          <p class="footer-tagline" id="footer-tagline">
+            Especialistas em media buying e tráfego pago para o mercado internacional. Escalamos resultados com precisão e dados.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-pt="EMPRESA" data-en="COMPANY">EMPRESA</h5>
+          <ul>
+            <li><a href="#about" data-pt="Sobre Nós" data-en="About Us">Sobre Nós</a></li>
+            <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+            <li><a href="#numbers" data-pt="Resultados" data-en="Results">Resultados</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-pt="CONTATO" data-en="CONTACT">CONTATO</h5>
+          <ul>
+            <li><a href="mailto:contato@axiomgroups.org">contato@axiomgroups.org</a></li>
+            <li><a href="#contact" data-pt="Formulário de Contato" data-en="Contact Form">Formulário de Contato</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2025 <span>Axiom Group</span>. <span id="footer-rights" data-pt="Todos os direitos reservados." data-en="All rights reserved.">Todos os direitos reservados.</span>
+        </p>
+        <p class="footer-copy">axiomgroups.org</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════ -->
+  <script>
+    // ─── STATE ───────────────────────────
+    let currentLang = 'pt';
+
+    // ─── TRANSLATIONS ────────────────────
+    const t = {
+      pt: {
+        heroBadge: 'Especialistas em Media Buying Global',
+        heroL1: 'Dominamos',
+        heroL2: 'o tráfego.',
+        heroL3: 'Escalamos resultados.',
+        heroSub: 'A Axiom Group é uma agência brasileira especializada em compra de mídia e tráfego pago para o mercado internacional. Transformamos investimento em resultado com precisão, dados e criatividade.',
+        heroCta1: 'Fale com a Axiom',
+        heroCta2: 'Nossos Serviços',
+        heroScroll: 'SCROLL',
+        aboutTitle: 'Prazer,\nAxiom Group.',
+        aboutDesc: 'Somos uma agência brasileira especializada em media buying e tráfego pago para o mercado internacional. Com foco total em performance, gerenciamos campanhas de alto volume em YouTube Ads, Native Ads e outras plataformas globais.',
+        aboutQuote: '"Todo investimento em mídia deve gerar resultado mensurável. Esse é o único padrão que aceitamos."',
+        servicesTitle: 'Nossos\nServiços',
+        servicesDesc: 'Cada solução é desenhada para maximizar seu ROI no mercado global.',
+        numbersTitle: 'Resultados que\nfalam por si.',
+        whyTitle: 'O que nos\ndiferencia.',
+        contactTitle: 'Vamos\nconversar?',
+        contactDesc: 'Entre em contato e descubra como a Axiom Group pode transformar seus resultados em mídia paga.',
+        footerTagline: 'Especialistas em media buying e tráfego pago para o mercado internacional. Escalamos resultados com precisão e dados.',
+        navCta: 'Fale Conosco',
+        marqueeItems: ['MEDIA BUYING', 'YOUTUBE ADS', 'NATIVE ADS', 'TRÁFEGO PAGO', 'PERFORMANCE', 'VSL', 'FUNIL DE VENDAS', 'CRIATIVOS', 'ROAS', 'AXIOM GROUP'],
+      },
+      en: {
+        heroBadge: 'Global Media Buying Specialists',
+        heroL1: 'We dominate',
+        heroL2: 'the traffic.',
+        heroL3: 'We scale results.',
+        heroSub: 'Axiom Group is a Brazilian agency specialized in media buying and paid traffic for the international market. We turn investment into results with precision, data, and creativity.',
+        heroCta1: 'Talk to Axiom',
+        heroCta2: 'Our Services',
+        heroScroll: 'SCROLL',
+        aboutTitle: 'Nice to meet you,\nAxiom Group.',
+        aboutDesc: 'We are a Brazilian agency specialized in media buying and paid traffic for the international market. With a total focus on performance, we manage high-volume campaigns on YouTube Ads, Native Ads, and other global platforms.',
+        aboutQuote: '"Every media investment must generate measurable results. That is the only standard we accept."',
+        servicesTitle: 'Our\nServices',
+        servicesDesc: 'Every solution is designed to maximize your ROI in the global market.',
+        numbersTitle: 'Results that\nspeak for themselves.',
+        whyTitle: 'What sets us\napart.',
+        contactTitle: "Let's\ntalk?",
+        contactDesc: 'Get in touch and discover how Axiom Group can transform your paid media results.',
+        footerTagline: 'Media buying and paid traffic specialists for the international market. We scale results with precision and data.',
+        navCta: 'Get in Touch',
+        marqueeItems: ['MEDIA BUYING', 'YOUTUBE ADS', 'NATIVE ADS', 'PAID TRAFFIC', 'PERFORMANCE', 'VSL', 'SALES FUNNEL', 'CREATIVES', 'ROAS', 'AXIOM GROUP'],
+      }
+    };
+
+    // ─── BUILD MARQUEE ────────────────────
+    function buildMarquee(lang) {
+      const items = t[lang].marqueeItems;
+      const track = document.getElementById('marquee-track');
+      let html = '';
+      // double for seamless loop
+      for (let i = 0; i < 2; i++) {
+        items.forEach(item => {
+          html += `<span class="marquee-item"><span class="dot"></span>${item}</span>`;
+        });
+      }
+      track.innerHTML = html;
+    }
+
+    // ─── SET LANGUAGE ────────────────────
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Update buttons
+      ['btn-pt','btn-en'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('active', id === `btn-${lang}`);
+      });
+      ['btn-pt-m','btn-en-m'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('active', id === `btn-${lang}-m`);
+      });
+
+      const tx = t[lang];
+
+      // Hero
+      const badge = document.querySelector('.hero-badge');
+      if (badge) badge.textContent = tx.heroBadge;
+      setText('hero-line1', tx.heroL1);
+      setText('hero-line3', tx.heroL3);
+      const hl = document.getElementById('hero-line2');
+      if (hl) hl.textContent = tx.heroL2;
+      setText('hero-sub', tx.heroSub);
+      setLink('hero-cta1', tx.heroCta1);
+      setLink('hero-cta2', tx.heroCta2);
+      const hs = document.getElementById('hero-scroll');
+      if (hs) hs.childNodes[0].textContent = tx.heroScroll;
+
+      // About
+      const at = document.getElementById('about-title');
+      if (at) { at.innerHTML = formatTitle(tx.aboutTitle, true); }
+      setText('about-desc', tx.aboutDesc);
+      const aq = document.getElementById('about-quote');
+      if (aq) aq.textContent = tx.aboutQuote;
+
+      // Services
+      const st = document.getElementById('services-title');
+      if (st) { st.innerHTML = formatTitle(tx.servicesTitle, true); }
+      setText('services-desc', tx.servicesDesc);
+
+      // Numbers
+      const nt = document.getElementById('numbers-title');
+      if (nt) { nt.innerHTML = formatTitle(tx.numbersTitle, true); }
+
+      // Why
+      const wt = document.getElementById('why-title');
+      if (wt) { wt.innerHTML = formatTitle(tx.whyTitle, true); }
+
+      // Contact
+      const ct = document.getElementById('contact-title');
+      if (ct) { ct.innerHTML = formatTitle(tx.contactTitle, true); }
+      setText('contact-desc', tx.contactDesc);
+
+      // Footer
+      setText('footer-tagline', tx.footerTagline);
+
+      // Nav CTA
+      const nc = document.querySelector('.btn-nav');
+      if (nc) nc.textContent = tx.navCta;
+
+      // All data-pt / data-en elements
+      document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+        // Skip elements we've already handled individually
+        if (el.id && ['hero-sub','about-desc','services-desc','contact-desc','footer-tagline'].includes(el.id)) return;
+        const val = el.getAttribute(`data-${lang}`);
+        if (val) el.textContent = val;
+      });
+
+      // Marquee
+      buildMarquee(lang);
+    }
+
+    function setText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    function setLink(id, text) {
+      const el = document.getElementById(id);
+      if (el) {
+        // preserve the arrow svg
+        const svg = el.querySelector('svg');
+        el.textContent = text + ' ';
+        if (svg) el.appendChild(svg);
+      }
+    }
+
+    function formatTitle(text, accent) {
+      const lines = text.split('\n');
+      return lines.map((line, i) => {
+        if (i === lines.length - 1 && accent) {
+          return `<span class="accent">${line}</span>`;
+        }
+        return line + (i < lines.length - 1 ? '<br />' : '');
+      }).join('');
+    }
+
+    // ─── DETECT IP COUNTRY ────────────────
+    async function detectLanguage() {
+      try {
+        const r = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) });
+        const data = await r.json();
+        const lang = data.country_code === 'BR' ? 'pt' : 'en';
+        setLang(lang);
+      } catch {
+        // fallback: check browser language
+        const bl = navigator.language || navigator.userLanguage || '';
+        setLang(bl.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+      }
+    }
+
+    // ─── NAVBAR SCROLL ────────────────────
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── MOBILE MENU ─────────────────────
+    document.getElementById('hamburger')?.addEventListener('click', () => {
+      document.getElementById('mobile-menu')?.classList.add('open');
+    });
+    document.getElementById('close-menu')?.addEventListener('click', closeMobile);
+    function closeMobile() {
+      document.getElementById('mobile-menu')?.classList.remove('open');
+    }
+
+    // ─── SCROLL ANIMATIONS ───────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ─── CONTACT FORM ────────────────────
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('form-success');
+      if (form && success) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    }
+
+    // ─── INIT ─────────────────────────────
+    buildMarquee('pt');   // initial render
+    detectLanguage();     // async: will update lang if needed
+  </script>
+
+</body>
+</html>
